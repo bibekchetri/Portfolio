@@ -63,157 +63,121 @@
       background-clip: text;
     }
 
-    /* ─── Executive Liquid Glass Image Presentation with Subtle Directional Fade ─── */
+    /* ─── Executive Hero Portrait with Pure Animated Liquid Border & Smooth 3D Tilt ─── */
+    @property --liquid-border-angle {
+      syntax: '<angle>';
+      initial-value: 0deg;
+      inherits: false;
+    }
+
     .liquid-glass-frame {
       position: relative;
-      border-radius: 32px;
       isolation: isolate;
-      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      perspective: 1000px;
+      cursor: pointer;
+      user-select: none;
+      animation: heroGentleFloat 5.5s ease-in-out infinite alternate;
     }
 
-    @media (min-width: 1280px) {
-      .liquid-glass-frame {
-        border-radius: 38px;
-      }
-    }
-
-    @media (max-width: 639px) {
-      .liquid-glass-frame {
-        border-radius: 26px;
-      }
-    }
-
-    /* Ambient Liquid Refraction Back-Glow */
+    /* Soft Ambient Radial Back-Glow (No harsh spinning, smooth breathing aura) */
     .liquid-glass-glow {
       position: absolute;
-      inset: -15px;
-      border-radius: inherit;
+      inset: -14px;
+      border-radius: 36px;
       background: radial-gradient(
-        circle at 35% 25%,
-        rgba(255, 255, 255, 0.12) 0%,
-        rgba(200, 41, 9, 0.26) 42%,
+        circle at 50% 50%,
+        rgba(200, 41, 9, 0.45) 0%,
+        rgba(255, 75, 40, 0.22) 40%,
+        rgba(200, 41, 9, 0.08) 60%,
         transparent 72%
       );
-      filter: blur(28px);
-      opacity: 0.8;
+      filter: blur(32px);
+      opacity: 0.72;
       pointer-events: none;
       z-index: 0;
-      transition: opacity 0.5s ease, filter 0.5s ease;
-      animation: liquid-pulse 7s ease-in-out infinite alternate;
-    }
-
-    @keyframes liquid-pulse {
-      0% { transform: scale(0.98); opacity: 0.7; }
-      100% { transform: scale(1.03); opacity: 0.95; }
+      animation: smoothAuraGlow 7s ease-in-out infinite alternate;
+      transition: opacity 0.4s ease, filter 0.4s ease;
     }
 
     .liquid-glass-frame:hover .liquid-glass-glow {
-      opacity: 1;
-      filter: blur(34px);
+      opacity: 0.95;
+      filter: blur(38px);
     }
 
-    /* The Liquid Glass Rim: 2.5px gradient with directional light refraction & subtle bottom fade */
+    /* Bold Liquid Border (Self-Contained Gradient - Zero Corner Shards or Leakage) */
     .liquid-glass-border {
       position: relative;
       z-index: 1;
       width: 100%;
       height: 100%;
-      border-radius: inherit;
-      padding: 2.5px;
-      background: linear-gradient(
-        135deg,
-        rgba(255, 255, 255, 0.85) 0%,
-        rgba(255, 255, 255, 0.28) 22%,
-        rgba(247, 119, 103, 0.42) 42%,
-        rgba(200, 41, 9, 0.28) 62%,
-        rgba(255, 255, 255, 0.08) 80%,
-        rgba(255, 255, 255, 0.02) 92%,
-        transparent 100%
+      padding: 5.5px;
+      border-radius: 28px;
+      background: conic-gradient(
+        from var(--liquid-border-angle, 0deg),
+        #C82909 0deg,
+        #ff5733 45deg,
+        #ffa18c 90deg,
+        #ffffff 110deg,
+        #ff5733 140deg,
+        #C82909 180deg,
+        #ff3b14 225deg,
+        #ffa18c 270deg,
+        #ffffff 290deg,
+        #ff5733 320deg,
+        #C82909 360deg
       );
+      animation: rotateLiquidBorder 6s linear infinite;
       box-shadow:
-        0 28px 60px -12px rgba(0, 0, 0, 0.92),
-        0 12px 28px -6px rgba(0, 0, 0, 0.8),
-        0 0 35px -5px rgba(200, 41, 9, 0.26),
-        inset 0 1.5px 2px rgba(255, 255, 255, 0.65),
-        inset 0 -1.5px 2px rgba(0, 0, 0, 0.7);
-      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        0 28px 65px -12px rgba(0, 0, 0, 0.92),
+        0 12px 28px -6px rgba(0, 0, 0, 0.75),
+        0 0 35px -5px rgba(200, 41, 9, 0.45);
+      transition: box-shadow 0.35s ease;
     }
 
-    .liquid-glass-frame:hover .liquid-glass-border {
-      background: linear-gradient(
-        135deg,
-        rgba(255, 255, 255, 0.95) 0%,
-        rgba(255, 255, 255, 0.42) 22%,
-        rgba(247, 119, 103, 0.55) 46%,
-        rgba(200, 41, 9, 0.42) 68%,
-        rgba(255, 255, 255, 0.12) 88%,
-        transparent 100%
-      );
-      box-shadow:
-        0 35px 75px -12px rgba(0, 0, 0, 0.96),
-        0 0 50px -5px rgba(200, 41, 9, 0.45),
-        inset 0 2px 2px rgba(255, 255, 255, 0.8);
-      transform: translateY(-3px) scale(1.012);
+    @media (max-width: 639px) {
+      .liquid-glass-border {
+        padding: 4.5px;
+        border-radius: 24px;
+      }
     }
 
-    /* Liquid Glass Inner Container */
+    /* Liquid Glass Inner Container (Framing the Portrait with Precision Bezel) */
     .liquid-glass-inner {
       position: relative;
+      z-index: 1;
       width: 100%;
       height: 100%;
-      border-radius: calc(32px - 2.5px);
+      border-radius: calc(28px - 5.5px);
       overflow: hidden;
-      background: #080709;
+      background: #060508;
       box-shadow:
-        inset 0 1px 1.5px rgba(255, 255, 255, 0.35),
-        inset 0 0 18px rgba(255, 255, 255, 0.03),
-        inset 0 -2px 6px rgba(0, 0, 0, 0.75);
-    }
-
-    @media (min-width: 1280px) {
-      .liquid-glass-inner {
-        border-radius: calc(38px - 2.5px);
-      }
+        inset 0 1.5px 2.5px rgba(255, 255, 255, 0.35),
+        inset 0 0 0 1px rgba(0, 0, 0, 0.8),
+        inset 0 -3px 8px rgba(0, 0, 0, 0.9);
     }
 
     @media (max-width: 639px) {
       .liquid-glass-inner {
-        border-radius: calc(26px - 2.5px);
+        border-radius: calc(24px - 4.5px);
       }
     }
 
-    /* Top glass prism specular light reflection */
-    .liquid-glass-inner::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 12%;
-      right: 12%;
-      height: 1.5px;
-      background: linear-gradient(
-        90deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0.7) 50%,
-        transparent 100%
-      );
-      z-index: 4;
-      pointer-events: none;
-    }
-
-    /* Specular diagonal glass sheen */
+    /* Dynamic 3D Cursor Specular Sheen */
     .liquid-glass-sheen {
       position: absolute;
       inset: 0;
       pointer-events: none;
       z-index: 3;
       border-radius: inherit;
-      background: linear-gradient(
-        135deg,
-        rgba(255, 255, 255, 0.18) 0%,
-        rgba(255, 255, 255, 0.04) 22%,
-        transparent 45%
+      background: radial-gradient(
+        circle at 50% 50%,
+        rgba(255, 255, 255, 0.35) 0%,
+        rgba(255, 255, 255, 0.08) 25%,
+        transparent 65%
       );
+      opacity: 0;
       mix-blend-mode: overlay;
+      transition: opacity 0.35s ease;
     }
 
     /* Professional subtle bottom fade vignette */
@@ -225,25 +189,90 @@
       border-radius: inherit;
       background: linear-gradient(
         to top,
-        rgba(5, 5, 7, 0.65) 0%,
-        rgba(5, 5, 7, 0.25) 18%,
-        rgba(5, 5, 7, 0.05) 32%,
-        transparent 50%
+        rgba(5, 5, 7, 0.55) 0%,
+        rgba(5, 5, 7, 0.15) 18%,
+        transparent 38%
       );
     }
 
-    /* Image behavior inside liquid glass */
+    /* Portrait Image (Crisp & Perfectly Proportionate) */
     .liquid-glass-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center;
-      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+      display: block;
+      border-radius: inherit;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
       filter: contrast(1.02) brightness(1.02);
     }
 
-    .liquid-glass-frame:hover .liquid-glass-img {
-      transform: scale(1.04);
+    /* Animations: Floating, Liquid Border Rotation & Breathing Aura */
+    @keyframes heroGentleFloat {
+      0% {
+        transform: translateY(0px);
+      }
+      100% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes rotateLiquidBorder {
+      to {
+        --liquid-border-angle: 360deg;
+      }
+    }
+
+    @keyframes smoothAuraGlow {
+      0% {
+        transform: scale(0.96);
+        opacity: 0.65;
+      }
+      100% {
+        transform: scale(1.04);
+        opacity: 0.88;
+      }
+    }
+
+    /* Ambient Hero Atmospheric Orbs Gentle Drift */
+    .hero-ambient-glow-1 {
+      animation: smoothOrbDrift1 14s ease-in-out infinite alternate;
+      will-change: transform, opacity;
+    }
+
+    .hero-ambient-glow-2 {
+      animation: smoothOrbDrift2 18s ease-in-out infinite alternate;
+      will-change: transform, opacity;
+    }
+
+    @keyframes smoothOrbDrift1 {
+      0% {
+        transform: scale(1) translate(0px, 0px);
+        opacity: 0.65;
+      }
+      50% {
+        transform: scale(1.08) translate(15px, -12px);
+        opacity: 0.85;
+      }
+      100% {
+        transform: scale(0.96) translate(-10px, 8px);
+        opacity: 0.6;
+      }
+    }
+
+    @keyframes smoothOrbDrift2 {
+      0% {
+        transform: scale(1) translate(0px, 0px);
+        opacity: 0.45;
+      }
+      50% {
+        transform: scale(1.12) translate(-18px, 14px);
+        opacity: 0.7;
+      }
+      100% {
+        transform: scale(0.94) translate(12px, -10px);
+        opacity: 0.4;
+      }
     }
 
     /* Seamless Infinite Marquee */
@@ -502,7 +531,26 @@
     #floating-navbar-island {
       transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
                   transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: transform, opacity;
+    }
+
+    #floating-navbar-island nav {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(200, 41, 9, 0.16) 40%, rgba(14, 9, 13, 0.74) 100%), rgba(8, 6, 10, 0.68);
+      backdrop-filter: blur(32px) saturate(200%) brightness(0.85);
+      -webkit-backdrop-filter: blur(32px) saturate(200%) brightness(0.85);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-color: rgba(255, 255, 255, 0.22) rgba(200, 41, 9, 0.35) rgba(200, 41, 9, 0.25) rgba(255, 255, 255, 0.14);
+      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.75), 
+                  0 0 22px -2px rgba(200, 41, 9, 0.2), 
+                  inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    #floating-navbar-island nav:hover {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(200, 41, 9, 0.22) 40%, rgba(18, 11, 15, 0.78) 100%), rgba(12, 8, 12, 0.72);
+      border-color: rgba(255, 255, 255, 0.3) rgba(200, 41, 9, 0.5) rgba(200, 41, 9, 0.38) rgba(255, 255, 255, 0.22);
+      box-shadow: 0 20px 42px -10px rgba(0, 0, 0, 0.85), 
+                  0 0 30px rgba(200, 41, 9, 0.28), 
+                  inset 0 1px 1px 0 rgba(255, 255, 255, 0.28);
     }
 
     @media (max-width: 767px) {
