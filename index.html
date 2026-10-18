@@ -179,7 +179,7 @@
        1.5 FLOATING ISLAND NAVIGATION (STAYS PINNED ON SCROLL)
   ══════════════════════════════════════════════════════════ -->
   <div id="floating-navbar-island" class="fixed top-3.5 sm:top-5 left-1/2 -translate-x-1/2 z-50 pointer-events-auto">
-    <nav class="flex items-center gap-1 sm:gap-2 p-1.5 sm:p-2 rounded-full bg-white/[0.12] backdrop-blur-xl backdrop-saturate-[180%] border border-white/[0.2] shadow-[0_10px_40px_rgba(0,0,0,0.5)] hover:bg-white/[0.15] hover:border-white/[0.3] transition-all duration-500">
+    <nav class="flex items-center gap-1 sm:gap-2 p-1.5 sm:p-2 rounded-full">
       
       <!-- Link 1: Work -->
       <!-- Link 0: Home -->
@@ -330,8 +330,8 @@
       <div class="hidden lg:flex lg:col-span-5 relative flex-col items-center lg:items-end justify-center mt-0">
         
         <!-- Warm Atmospheric Radial Glow behind Photo -->
-        <div class="absolute w-[440px] lg:w-[540px] h-[440px] lg:h-[540px] rounded-full bg-gradient-to-tr from-[#C82909]/24 via-[#f77767]/15 to-transparent blur-[90px] pointer-events-none -z-10"></div>
-        <div class="absolute w-80 lg:w-[420px] h-80 lg:h-[420px] rounded-full bg-[#f77767]/10 blur-[100px] pointer-events-none -z-10 -top-8 right-4"></div>
+        <div class="hero-ambient-glow-1 absolute w-[440px] lg:w-[540px] h-[440px] lg:h-[540px] rounded-full bg-gradient-to-tr from-[#C82909]/24 via-[#f77767]/15 to-transparent blur-[90px] pointer-events-none -z-10"></div>
+        <div class="hero-ambient-glow-2 absolute w-80 lg:w-[420px] h-80 lg:h-[420px] rounded-full bg-[#f77767]/10 blur-[100px] pointer-events-none -z-10 -top-8 right-4"></div>
 
         <!-- Liquid Glass Frame with Subtle Fade Rim & Optical Sheen -->
         <div class="liquid-glass-frame relative w-full max-w-[400px] xl:max-w-[440px] aspect-square group">
@@ -2227,6 +2227,114 @@
       
       // wait a tiny bit to ensure layout is done before attaching
       setTimeout(setupLaserScroll, 100);
-</script>
+
+      // ══════════════════════════════════════════════════════════
+      // HERO IMAGE 3D CURSOR-TRACKING TILT & LIQUID SHEEN
+      // ══════════════════════════════════════════════════════════
+      function setupHero3DTilt() {
+        const frames = document.querySelectorAll('.liquid-glass-frame');
+        if (!frames.length) return;
+
+        frames.forEach((frame) => {
+          const border = frame.querySelector('.liquid-glass-border');
+          const glow = frame.querySelector('.liquid-glass-glow');
+          const sheen = frame.querySelector('.liquid-glass-sheen');
+          const img = frame.querySelector('.liquid-glass-img');
+
+          let rect = null;
+          let targetX = 0;
+          let targetY = 0;
+          let currentX = 0;
+          let currentY = 0;
+          let isHovering = false;
+
+          function updateRect() {
+            rect = frame.getBoundingClientRect();
+          }
+
+          function onMouseEnter() {
+            isHovering = true;
+            updateRect();
+            if (sheen) sheen.style.opacity = '1';
+          }
+
+          function onMouseMove(e) {
+            if (!rect) updateRect();
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+
+            const normX = (mouseX / rect.width) - 0.5; // -0.5 to 0.5
+            const normY = (mouseY / rect.height) - 0.5; // -0.5 to 0.5
+
+            // Natural, subtle 3D tilt (up to +/- 12deg)
+            const maxTilt = 12;
+            targetY = normX * maxTilt;
+            targetX = -normY * maxTilt;
+
+            // Specular highlight following cursor
+            if (sheen) {
+              sheen.style.background = `radial-gradient(circle at ${mouseX}px ${mouseY}px, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.08) 30%, transparent 65%)`;
+            }
+          }
+
+          function onMouseLeave() {
+            isHovering = false;
+            targetX = 0;
+            targetY = 0;
+            if (sheen) sheen.style.opacity = '0';
+          }
+
+          function onTouchMove(e) {
+            if (!e.touches || !e.touches[0]) return;
+            if (!rect) updateRect();
+            const touch = e.touches[0];
+            const touchX = touch.clientX - rect.left;
+            const touchY = touch.clientY - rect.top;
+
+            if (touchX < 0 || touchX > rect.width || touchY < 0 || touchY > rect.height) {
+              onMouseLeave();
+              return;
+            }
+            isHovering = true;
+            const normX = (touchX / rect.width) - 0.5;
+            const normY = (touchY / rect.height) - 0.5;
+            targetY = normX * 10;
+            targetX = -normY * 10;
+            if (sheen) {
+              sheen.style.opacity = '1';
+              sheen.style.background = `radial-gradient(circle at ${touchX}px ${touchY}px, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.08) 30%, transparent 65%)`;
+            }
+          }
+
+          // Smooth lerp animation loop (60fps silky physics)
+          function renderTilt() {
+            const ease = isHovering ? 0.09 : 0.06;
+            currentX += (targetX - currentX) * ease;
+            currentY += (targetY - currentY) * ease;
+
+            const scale = isHovering ? 1.025 : 1.0;
+
+            if (border) {
+              border.style.transform = `perspective(900px) rotateX(${currentX.toFixed(2)}deg) rotateY(${currentY.toFixed(2)}deg) scale3d(${scale}, ${scale}, 1)`;
+            }
+
+            requestAnimationFrame(renderTilt);
+          }
+
+          frame.addEventListener('mouseenter', onMouseEnter);
+          frame.addEventListener('mousemove', onMouseMove);
+          frame.addEventListener('mouseleave', onMouseLeave);
+          frame.addEventListener('touchmove', onTouchMove, { passive: true });
+          frame.addEventListener('touchend', onMouseLeave);
+
+          window.addEventListener('resize', () => { rect = null; });
+          window.addEventListener('scroll', () => { rect = null; }, { passive: true });
+          requestAnimationFrame(renderTilt);
+        });
+      }
+
+      setupHero3DTilt();
+    </script>
+    <script src="scratch-trail.js" defer></script>
   </body>
 </html>
