@@ -78,7 +78,7 @@
     }
   </script>
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=3.2" />
   <script>
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'auto';
@@ -99,20 +99,26 @@
   <!-- ══════════════════════════════════════════════════════════
        1. TOP HEADER (SCROLLS AWAY WITH PAGE CONTENT)
   ══════════════════════════════════════════════════════════ -->
-  <header class="absolute top-0 left-0 right-0 z-40 bg-transparent pointer-events-none">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-18 sm:h-20 flex items-center justify-between">
+  <header class="fixed md:absolute top-0 left-0 right-0 z-40 bg-[#050507]/85 md:bg-transparent backdrop-blur-xl md:backdrop-blur-none border-b border-white/[0.06] md:border-b-0 pointer-events-auto md:pointer-events-none transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
       
-      <!-- Brand Mark: Bibek Chetri. (Left - Scrolls with page) -->
-      <a href="#hero" class="font-display font-extrabold text-lg sm:text-xl tracking-[1.5px] sm:tracking-[2px] text-white flex items-center pointer-events-auto">
-        Bibek Chetri<span class="text-[#C82909] text-xl sm:text-2xl font-black ml-0.5">.</span>
+      <!-- Brand Mark: Bibek Chetri. -->
+      <a href="#hero" class="font-display font-extrabold text-lg sm:text-xl tracking-[1.5px] text-white flex items-center pointer-events-auto group">
+        <span>Bibek Chetri</span><span class="text-[#C82909] text-xl sm:text-2xl font-black ml-0.5 group-hover:scale-125 transition-transform">.</span>
       </a>
 
       <!-- Desktop Spacer to balance center floating island -->
-      <div class="hidden md:block w-72 pointer-events-none"></div>
+      <div class="hidden md:block w-32 pointer-events-none"></div>
 
-      <!-- Right Action CTA Button & Mobile Toggle (Right - Scrolls with page) -->
-      <div class="flex items-center gap-2 sm:gap-3 pointer-events-auto">
-        
+      <!-- Right Action CTA Button & Mobile Toggle -->
+      <div class="flex items-center gap-2.5 sm:gap-3 pointer-events-auto">
+        <!-- Direct Quick Let's Talk CTA (Visible on Desktop & Tablet) -->
+        <a href="#contact" class="hidden sm:inline-flex btn-pill-base btn-pill-primary px-4 sm:px-5 py-2 text-xs sm:text-sm font-semibold shadow-md">
+          <span>Let's Talk</span>
+          <span class="btn-arrow-motion"><svg class="w-3.5 h-3.5 anim-arrow-right shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
+        </a>
+
+        <!-- Mobile Drawer Menu Toggle -->
         <button type="button" id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden w-10 h-10 rounded-full bg-white/[0.05] border border-white/10 flex items-center justify-center text-slate-300 hover:text-white transition-colors" aria-label="Toggle navigation menu">
           <span id="menu-icon-open"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></span>
           <span id="menu-icon-close" class="hidden"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"></line><line x1="6" x2="18" y1="6" y2="18"></line></svg></span>
@@ -122,52 +128,52 @@
     </div>
 
     <!-- Mobile Slide-Down Frosted Glass Drawer -->
-    <div id="mobile-menu-drawer" class="hidden md:hidden border-t border-white/[0.08] bg-[#050507]/95 md:backdrop-blur-2xl px-5 py-5 transition-all duration-300 shadow-2xl pointer-events-auto">
-      <div class="flex flex-col gap-2.5">
-        <a href="#work" onclick="toggleMobileMenu()" class="flex items-center justify-between p-3.5 rounded-2xl bg-white/[0.03] border border-white/[0.06] text-white font-display font-medium text-sm hover:border-[#C82909]/50 transition-all">
+    <div id="mobile-menu-drawer" class="hidden md:hidden border-t border-white/[0.08] bg-[#07070a]/95 backdrop-blur-2xl px-5 py-5 transition-all duration-300 shadow-2xl pointer-events-auto">
+      <div class="flex flex-col gap-2">
+        <a href="#work" onclick="toggleMobileMenu()" class="flex items-center justify-between p-3 rounded-xl bg-white/[0.025] border border-white/[0.06] text-white font-display font-medium text-sm hover:border-[#C82909]/50 transition-all">
           <span class="flex items-center gap-2.5">
-            <span class="text-[#C82909] text-base">✦</span>
+            <span class="w-2 h-2 rounded-full bg-[#C82909]"></span>
             <span>Featured Projects</span>
           </span>
-          <span class="text-[11px] text-slate-400 font-mono">100+ Delivered →</span>
+          <span class="text-[11px] text-slate-400 font-mono">100+ Works →</span>
         </a>
-        <a href="#experience" onclick="toggleMobileMenu()" class="flex items-center justify-between p-3.5 rounded-2xl bg-white/[0.03] border border-white/[0.06] text-white font-display font-medium text-sm hover:border-[#C82909]/50 transition-all">
+        <a href="#experience" onclick="toggleMobileMenu()" class="flex items-center justify-between p-3 rounded-xl bg-white/[0.025] border border-white/[0.06] text-white font-display font-medium text-sm hover:border-[#C82909]/50 transition-all">
           <span class="flex items-center gap-2.5">
-            <span class="text-[#C82909] text-base">⏳</span>
+            <span class="w-2 h-2 rounded-full bg-[#f77767]"></span>
             <span>Career Experience</span>
           </span>
-          <span class="text-[11px] text-slate-400 font-mono">5+ Years Track →</span>
+          <span class="text-[11px] text-slate-400 font-mono">Track Record →</span>
         </a>
-        <a href="#capabilities" onclick="toggleMobileMenu()" class="flex items-center justify-between p-3.5 rounded-2xl bg-white/[0.03] border border-white/[0.06] text-white font-display font-medium text-sm hover:border-[#C82909]/50 transition-all">
+        <a href="#capabilities" onclick="toggleMobileMenu()" class="flex items-center justify-between p-3 rounded-xl bg-white/[0.025] border border-white/[0.06] text-white font-display font-medium text-sm hover:border-[#C82909]/50 transition-all">
           <span class="flex items-center gap-2.5">
-            <span class="text-[#C82909] text-base">⚡</span>
+            <span class="w-2 h-2 rounded-full bg-slate-400"></span>
             <span>Design Capabilities</span>
           </span>
           <span class="text-[11px] text-slate-400 font-mono">Canva &amp; AI →</span>
         </a>
-        <a href="#reviews" onclick="toggleMobileMenu()" class="flex items-center justify-between p-3.5 rounded-2xl bg-white/[0.03] border border-white/[0.06] text-white font-display font-medium text-sm hover:border-[#C82909]/50 transition-all">
+        <a href="#reviews" onclick="toggleMobileMenu()" class="flex items-center justify-between p-3 rounded-xl bg-white/[0.025] border border-white/[0.06] text-white font-display font-medium text-sm hover:border-[#C82909]/50 transition-all">
           <span class="flex items-center gap-2.5">
-            <span class="text-[#C82909] text-base">★</span>
+            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
             <span>Client Reviews</span>
           </span>
-          <span class="text-[11px] text-slate-400 font-mono">WhatsApp &amp; TG →</span>
+          <span class="text-[11px] text-slate-400 font-mono">Verified (4.98★) →</span>
         </a>
-        <a href="#contact" onclick="toggleMobileMenu()" class="flex items-center justify-between p-3.5 rounded-2xl bg-white/[0.03] border border-white/[0.06] text-white font-display font-medium text-sm hover:border-[#C82909]/50 transition-all">
+        <a href="#contact" onclick="toggleMobileMenu()" class="flex items-center justify-between p-3 rounded-xl bg-white/[0.025] border border-white/[0.06] text-white font-display font-medium text-sm hover:border-[#C82909]/50 transition-all">
           <span class="flex items-center gap-2.5">
-            <span class="text-[#C82909] text-base">✉</span>
-            <span>Let's Build Together</span>
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span>Get in Touch</span>
           </span>
-          <span class="text-[11px] text-slate-400 font-mono">Get in Touch →</span>
+          <span class="text-[11px] text-slate-400 font-mono">Start Project →</span>
         </a>
         
         <!-- Mobile Drawer Instant Conversion Actions -->
         <div class="grid grid-cols-2 gap-2 pt-3 mt-1 border-t border-white/[0.06]">
           <a href="https://wa.me/918099190814?text=Hi%20Bibek,%20I'd%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener" class="text-xs font-display font-semibold text-emerald-400 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-emerald-500/10 border border-emerald-500/25">
-            <svg class="w-5 h-5 anim-whatsapp-icon shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.9-1.3.2-.6.2-1.1.2-1.3-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.6-1.3l-.3-.2-3 .8.8-2.9-.2-.3C3.9 15 3.4 13.5 3.4 12c0-4.7 3.9-8.6 8.6-8.6 4.7 0 8.6 3.9 8.6 8.6 0 4.7-3.9 8.6-8.6 8.6z"/></svg>
+            <svg class="w-4 h-4 anim-whatsapp-icon shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.9-1.3.2-.6.2-1.1.2-1.3-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.6-1.3l-.3-.2-3 .8.8-2.9-.2-.3C3.9 15 3.4 13.5 3.4 12c0-4.7 3.9-8.6 8.6-8.6 4.7 0 8.6 3.9 8.6 8.6 0 4.7-3.9 8.6-8.6 8.6z"/></svg>
             <span>WhatsApp</span>
           </a>
           <a href="mailto:chetribibek7@gmail.com" class="text-xs font-display font-semibold text-[#fca5a5] flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-[#C82909]/10 border border-[#C82909]/25">
-            <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+            <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
             <span>Send Email</span>
           </a>
         </div>
@@ -227,25 +233,22 @@
       <!-- LEFT COLUMN: Content & Actions matching Image 2 -->
       <div class="lg:col-span-7 flex flex-col items-start text-left z-10">
 
-        <!-- Status Pill: Available for new projects (Animated Green Border) -->
-          <div class="relative inline-flex items-center justify-center p-[1px] rounded-full overflow-hidden shadow-[0_0_20px_rgba(16,185,129,0.15)] mb-6 sm:mb-8 hover:shadow-[0_0_25px_rgba(16,185,129,0.25)] transition-all duration-500 animated-border-pill">
-            <!-- Inner pill masking the center -->
-            <div class="animated-border-inner">
-              <span class="text-[#10b981] text-sm animate-pulse">✦</span>
-              <span class="text-xs sm:text-sm font-display text-slate-200 font-medium tracking-wide">Available for new projects</span>
-            </div>
-          </div>
+        <!-- Status Pill: Available for new projects (Minimal & Aesthetic) -->
+        <div class="minimal-status-pill mb-6 sm:mb-8">
+          <span class="minimal-status-dot"></span>
+          <span class="text-xs sm:text-sm font-display text-emerald-300 font-medium tracking-wide">Available for new projects</span>
+        </div>
 
-          <!-- Main Headline with Italic Serif Accent -->
+        <!-- Main Headline with Italic Serif Accent -->
         <h1 class="font-display font-extrabold text-[32px] sm:text-5xl lg:text-[62px] xl:text-[70px] tracking-tight leading-[1.1] sm:leading-[1.08] text-white mb-5 sm:mb-6">
           Designing Visuals &amp;<br/>
           Brand Identities That<br/>
           <span class="font-serif italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-[#f77767] via-[#ffa194] to-[#C82909] drop-shadow-[0_4px_25px_rgba(200,41,9,0.35)]">Drive Real Impact</span>
         </h1>
 
-        <!-- Mobile Portrait (Liquid Glass Rim with Professional Subtle Fade) -->
+        <!-- Mobile Portrait (Minimal & Aesthetic Framing) -->
         <div class="lg:hidden relative w-full flex flex-col items-center justify-center my-6 sm:my-8">
-          <div class="liquid-glass-frame relative w-full max-w-[280px] sm:max-w-[320px] aspect-square">
+          <div class="liquid-glass-frame relative w-full max-w-[220px] sm:max-w-[260px] aspect-square">
             <div class="liquid-glass-glow"></div>
             <div class="liquid-glass-border">
               <div class="liquid-glass-inner">
@@ -262,7 +265,7 @@
           </div>
 
           <!-- Mobile Social Media Links Under Photo -->
-          <div class="flex items-center justify-center gap-3 mt-4">
+          <div class="flex items-center justify-center gap-2.5 mt-4">
             <a href="https://www.instagram.com/b7bekchetri/" target="_blank" rel="noopener" class="social-icon-btn !w-9 !h-9" title="Instagram Profile (@b7bekchetri)">
               <svg class="w-4 h-4 anim-instagram-icon shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
             </a>
@@ -278,40 +281,43 @@
           </div>
         </div>
 
-        <!-- Bio Paragraph (Grounded in CV: 100+ clients, Canva Expert, AI tools, Brand & App Visuals) -->
-        <p class="text-slate-400 text-sm sm:text-base lg:text-lg max-w-xl leading-relaxed mb-6 sm:mb-10 font-normal">
+        <!-- Bio Paragraph -->
+        <p class="text-slate-400 text-sm sm:text-base lg:text-lg max-w-xl leading-relaxed mb-6 sm:mb-8 font-normal">
           Hi, I'm <strong class="text-white font-semibold">Bibek Chetri</strong> — a Creative Visual Designer &amp; Canva Expert with a proven track record of delivering high-impact brand identities, marketing creatives, and mobile app visuals for <span class="text-slate-200 font-medium">100+ clients</span>. Blending <span class="text-slate-200 font-medium">modern AI workflows</span> with customer-focused strategy to create designs that captivate and convert.
         </p>
 
-        <!-- Action Buttons matching Image 2 -->
-        <div class="flex flex-wrap items-center gap-3.5 sm:gap-4 w-full sm:w-auto mb-10 sm:mb-12">
+        <!-- Action Buttons (Responsive Symmetrical Layout) -->
+        <div class="w-full sm:w-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-3.5 mb-8 sm:mb-12">
           <!-- Primary Pill: View My Work ↗ -->
-          <a href="#work" class="btn-pill-base bg-[#121217] hover:bg-[#C82909] text-white border border-white/[0.15] hover:border-[#C82909] px-7 py-3.5 text-sm sm:text-base font-semibold shadow-[0_10px_25px_rgba(0,0,0,0.6)] hover:shadow-[0_12px_35px_rgba(200,41,9,0.45)] group">
+          <a href="#work" class="btn-pill-base bg-[#121217] hover:bg-[#C82909] text-white border border-white/[0.15] hover:border-[#C82909] px-6 sm:px-7 py-3.5 text-sm sm:text-base font-semibold shadow-[0_10px_25px_rgba(0,0,0,0.6)] hover:shadow-[0_12px_35px_rgba(200,41,9,0.45)] group justify-center">
             <span>View My Work</span>
             <span class="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
               <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
             </span>
           </a>
 
-          <!-- Secondary Pill: Let's Talk 💬 -->
-          <a href="#contact" class="btn-pill-base bg-white/[0.04] hover:bg-white/[0.09] text-slate-200 hover:text-white border border-white/[0.12] hover:border-white/[0.25] px-6 py-3.5 text-sm sm:text-base font-semibold backdrop-blur-md transition-all">
-            <svg class="w-4 h-4 text-[#f77767] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            <span>Let's Talk</span>
-          </a>
+          <!-- Paired Secondary & Resume Pills on Mobile -->
+          <div class="grid grid-cols-2 gap-2.5 sm:flex sm:gap-3.5">
+            <!-- Secondary Pill: Let's Talk -->
+            <a href="#contact" class="btn-pill-base bg-white/[0.04] hover:bg-white/[0.09] text-slate-200 hover:text-white border border-white/[0.12] hover:border-white/[0.25] px-4 sm:px-6 py-3 text-xs sm:text-base font-semibold backdrop-blur-md transition-all justify-center">
+              <svg class="w-4 h-4 text-[#f77767] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <span>Let's Talk</span>
+            </a>
 
-          <!-- Accent Pill: Download CV -->
-          <a href="Bibek_Chetri_Resume.pdf" download class="btn-pill-base bg-[#C82909]/10 hover:bg-[#C82909]/20 text-[#fca5a5] hover:text-white border border-[#C82909]/30 hover:border-[#C82909]/60 px-5 sm:px-6 py-3.5 text-sm sm:text-base font-semibold backdrop-blur-md transition-all group">
-            <span class="transition-transform duration-300 group-hover:translate-y-0.5">
-              <svg class="w-4 h-4 text-[#f77767] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            </span>
-            <span>Download CV</span>
-          </a>
+            <!-- Accent Pill: Download CV -->
+            <a href="Bibek_Chetri_Resume.pdf" download class="btn-pill-base bg-[#C82909]/10 hover:bg-[#C82909]/20 text-[#fca5a5] hover:text-white border border-[#C82909]/30 hover:border-[#C82909]/60 px-4 sm:px-6 py-3 text-xs sm:text-base font-semibold backdrop-blur-md transition-all group justify-center">
+              <span class="transition-transform duration-300 group-hover:translate-y-0.5">
+                <svg class="w-4 h-4 text-[#f77767] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              </span>
+              <span>Download CV</span>
+            </a>
+          </div>
         </div>
 
         <!-- Trust Badges Quick Strip -->
-        <div class="pt-6 border-t border-white/[0.08] w-full flex flex-wrap items-center gap-5 sm:gap-7">
+        <div class="pt-5 border-t border-white/[0.08] w-full flex flex-wrap items-center justify-between sm:justify-start gap-4 sm:gap-7">
           <div class="flex items-center gap-2 text-xs font-display text-slate-400">
-            <span class="w-2 h-2 rounded-full bg-[#C82909]"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-[#C82909]"></span>
             <span><strong class="text-white font-semibold">100+</strong> Delivered</span>
           </div>
           <div class="flex items-center gap-2 text-xs font-display text-slate-400">
@@ -608,20 +614,20 @@
         <h2 class="font-display font-bold text-2xl md:text-3xl text-white">Tools I Use Daily</h2>
       </div>
 
-      <div class="glass-panel p-6 sm:p-10 md:p-12 rounded-[32px] sm:rounded-[40px] border border-white/[0.06] bg-gradient-to-b from-white/[0.025] to-transparent shadow-[0_20px_50px_rgba(0,0,0,0.4)] relative overflow-hidden">
+      <div class="glass-panel p-6 sm:p-10 md:p-12 rounded-[28px] sm:rounded-[36px] border border-white/[0.06] bg-gradient-to-b from-white/[0.025] to-transparent shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative overflow-hidden">
         
         <!-- Ambient Background Glow -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-40 bg-[#F5A623]/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-40 bg-[#C82909]/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <!-- Shared SVG Gradient Definition -->
         <svg class="absolute w-0 h-0 pointer-events-none" aria-hidden="true" focusable="false">
           <defs>
-            <linearGradient id="gold-arc-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#FCD34D" />
-              <stop offset="50%" stop-color="#F5A623" />
-              <stop offset="100%" stop-color="#D97706" />
+            <linearGradient id="crimson-arc-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ff7e67" />
+              <stop offset="50%" stop-color="#C82909" />
+              <stop offset="100%" stop-color="#991e06" />
             </linearGradient>
-            <filter id="gold-glow" x="-20%" y="-20%" width="140%" height="140%">
+            <filter id="crimson-glow" x="-20%" y="-20%" width="140%" height="140%">
               <feGaussianBlur stdDeviation="3" result="blur" />
               <feComposite in="SourceGraphic" in2="blur" operator="over" />
             </filter>
@@ -633,22 +639,22 @@
           
           <!-- Dial 1: Canva Pro (90%) -->
           <div class="flex flex-col items-center group w-full">
-            <div class="relative w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 flex items-center justify-center">
-              <svg class="w-full h-full -rotate-90 transform drop-shadow-[0_0_12px_rgba(245,166,35,0.35)]" viewBox="0 0 120 120">
+            <div class="relative w-22 h-22 sm:w-32 sm:h-32 md:w-36 md:h-36 flex items-center justify-center">
+              <svg class="w-full h-full -rotate-90 transform drop-shadow-[0_0_12px_rgba(200,41,9,0.35)]" viewBox="0 0 120 120">
                 <!-- Inactive Track -->
-                <circle cx="60" cy="60" r="50" stroke="rgba(245, 166, 35, 0.16)" stroke-width="5" fill="none" />
+                <circle cx="60" cy="60" r="50" stroke="rgba(255, 255, 255, 0.08)" stroke-width="5" fill="none" />
                 <!-- 90% Active Arc (314.16 * 0.10 = 31.42 offset) -->
-                <circle cx="60" cy="60" r="50" stroke="url(#gold-arc-grad)" stroke-width="5" stroke-linecap="round" fill="none" stroke-dasharray="314.16" stroke-dashoffset="31.42" filter="url(#gold-glow)" class="transition-all duration-1000 ease-out" />
+                <circle cx="60" cy="60" r="50" stroke="url(#crimson-arc-grad)" stroke-width="5" stroke-linecap="round" fill="none" stroke-dasharray="314.16" stroke-dashoffset="31.42" filter="url(#crimson-glow)" class="transition-all duration-1000 ease-out" />
               </svg>
               <!-- Center Logo Disc -->
-              <div class="absolute inset-2.5 sm:inset-3.5 md:inset-4 rounded-full overflow-hidden border-2 border-black/80 shadow-[0_10px_25px_rgba(0,0,0,0.6)] flex items-center justify-center bg-[#07070a] group-hover:scale-105 transition-transform duration-300">
+              <div class="absolute inset-2.5 sm:inset-3.5 md:inset-4 rounded-full overflow-hidden border border-white/10 shadow-[0_10px_25px_rgba(0,0,0,0.7)] flex items-center justify-center bg-[#07070a] group-hover:scale-105 transition-transform duration-300">
                 <img loading="lazy" src="assets/canva-circle.webp" alt="Canva Pro" class="w-full h-full object-cover">
               </div>
             </div>
             <!-- Labels -->
-            <div class="mt-3 sm:mt-4 text-center">
-              <h3 class="font-display font-bold text-xs sm:text-base md:text-lg text-white group-hover:text-[#FBBF24] transition-colors tracking-wide">Canva Pro</h3>
-              <div class="mt-1 sm:mt-1.5 inline-flex items-center px-2.5 sm:px-3 py-0.5 rounded-full bg-[#F5A623]/10 border border-[#F5A623]/25 text-[11px] sm:text-xs font-display font-semibold text-[#FBBF24]">
+            <div class="mt-2.5 sm:mt-4 text-center">
+              <h3 class="font-display font-bold text-xs sm:text-base md:text-lg text-white group-hover:text-[#fca5a5] transition-colors tracking-wide">Canva Pro</h3>
+              <div class="mt-1 sm:mt-1.5 inline-flex items-center px-2.5 sm:px-3 py-0.5 rounded-full bg-[#C82909]/10 border border-[#C82909]/25 text-[11px] sm:text-xs font-display font-semibold text-[#fca5a5]">
                 <span>90%</span>
               </div>
             </div>
@@ -656,22 +662,22 @@
 
           <!-- Dial 2: Affinity (50%) -->
           <div class="flex flex-col items-center group w-full">
-            <div class="relative w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 flex items-center justify-center">
-              <svg class="w-full h-full -rotate-90 transform drop-shadow-[0_0_12px_rgba(245,166,35,0.35)]" viewBox="0 0 120 120">
+            <div class="relative w-22 h-22 sm:w-32 sm:h-32 md:w-36 md:h-36 flex items-center justify-center">
+              <svg class="w-full h-full -rotate-90 transform drop-shadow-[0_0_12px_rgba(200,41,9,0.35)]" viewBox="0 0 120 120">
                 <!-- Inactive Track -->
-                <circle cx="60" cy="60" r="50" stroke="rgba(245, 166, 35, 0.16)" stroke-width="5" fill="none" />
+                <circle cx="60" cy="60" r="50" stroke="rgba(255, 255, 255, 0.08)" stroke-width="5" fill="none" />
                 <!-- 50% Active Arc (314.16 * 0.50 = 157.08 offset) -->
-                <circle cx="60" cy="60" r="50" stroke="url(#gold-arc-grad)" stroke-width="5" stroke-linecap="round" fill="none" stroke-dasharray="314.16" stroke-dashoffset="157.08" filter="url(#gold-glow)" class="transition-all duration-1000 ease-out" />
+                <circle cx="60" cy="60" r="50" stroke="url(#crimson-arc-grad)" stroke-width="5" stroke-linecap="round" fill="none" stroke-dasharray="314.16" stroke-dashoffset="157.08" filter="url(#crimson-glow)" class="transition-all duration-1000 ease-out" />
               </svg>
               <!-- Center Logo Disc -->
-              <div class="absolute inset-2.5 sm:inset-3.5 md:inset-4 rounded-full overflow-hidden border-2 border-black/80 shadow-[0_10px_25px_rgba(0,0,0,0.6)] flex items-center justify-center bg-[#07070a] group-hover:scale-105 transition-transform duration-300">
+              <div class="absolute inset-2.5 sm:inset-3.5 md:inset-4 rounded-full overflow-hidden border border-white/10 shadow-[0_10px_25px_rgba(0,0,0,0.7)] flex items-center justify-center bg-[#07070a] group-hover:scale-105 transition-transform duration-300">
                 <img loading="lazy" src="assets/affinity-circle.webp" alt="Affinity" class="w-full h-full object-cover">
               </div>
             </div>
             <!-- Labels -->
-            <div class="mt-3 sm:mt-4 text-center">
-              <h3 class="font-display font-bold text-xs sm:text-base md:text-lg text-white group-hover:text-[#FBBF24] transition-colors tracking-wide">Affinity</h3>
-              <div class="mt-1 sm:mt-1.5 inline-flex items-center px-2.5 sm:px-3 py-0.5 rounded-full bg-[#F5A623]/10 border border-[#F5A623]/25 text-[11px] sm:text-xs font-display font-semibold text-[#FBBF24]">
+            <div class="mt-2.5 sm:mt-4 text-center">
+              <h3 class="font-display font-bold text-xs sm:text-base md:text-lg text-white group-hover:text-[#fca5a5] transition-colors tracking-wide">Affinity</h3>
+              <div class="mt-1 sm:mt-1.5 inline-flex items-center px-2.5 sm:px-3 py-0.5 rounded-full bg-[#C82909]/10 border border-[#C82909]/25 text-[11px] sm:text-xs font-display font-semibold text-[#fca5a5]">
                 <span>50%</span>
               </div>
             </div>
@@ -679,22 +685,22 @@
 
           <!-- Dial 3: AI Tools (50%) -->
           <div class="flex flex-col items-center group w-full">
-            <div class="relative w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 flex items-center justify-center">
-              <svg class="w-full h-full -rotate-90 transform drop-shadow-[0_0_12px_rgba(245,166,35,0.35)]" viewBox="0 0 120 120">
+            <div class="relative w-22 h-22 sm:w-32 sm:h-32 md:w-36 md:h-36 flex items-center justify-center">
+              <svg class="w-full h-full -rotate-90 transform drop-shadow-[0_0_12px_rgba(200,41,9,0.35)]" viewBox="0 0 120 120">
                 <!-- Inactive Track -->
-                <circle cx="60" cy="60" r="50" stroke="rgba(245, 166, 35, 0.16)" stroke-width="5" fill="none" />
+                <circle cx="60" cy="60" r="50" stroke="rgba(255, 255, 255, 0.08)" stroke-width="5" fill="none" />
                 <!-- 50% Active Arc (314.16 * 0.50 = 157.08 offset) -->
-                <circle cx="60" cy="60" r="50" stroke="url(#gold-arc-grad)" stroke-width="5" stroke-linecap="round" fill="none" stroke-dasharray="314.16" stroke-dashoffset="157.08" filter="url(#gold-glow)" class="transition-all duration-1000 ease-out" />
+                <circle cx="60" cy="60" r="50" stroke="url(#crimson-arc-grad)" stroke-width="5" stroke-linecap="round" fill="none" stroke-dasharray="314.16" stroke-dashoffset="157.08" filter="url(#crimson-glow)" class="transition-all duration-1000 ease-out" />
               </svg>
               <!-- Center Logo Disc -->
-              <div class="absolute inset-2.5 sm:inset-3.5 md:inset-4 rounded-full overflow-hidden border-2 border-black/80 shadow-[0_10px_25px_rgba(0,0,0,0.6)] flex items-center justify-center bg-[#07070a] group-hover:scale-105 transition-transform duration-300">
+              <div class="absolute inset-2.5 sm:inset-3.5 md:inset-4 rounded-full overflow-hidden border border-white/10 shadow-[0_10px_25px_rgba(0,0,0,0.7)] flex items-center justify-center bg-[#07070a] group-hover:scale-105 transition-transform duration-300">
                 <img loading="lazy" src="assets/ai-circle.webp" alt="AI Tools" class="w-full h-full object-cover">
               </div>
             </div>
             <!-- Labels -->
-            <div class="mt-3 sm:mt-4 text-center">
-              <h3 class="font-display font-bold text-xs sm:text-base md:text-lg text-white group-hover:text-[#FBBF24] transition-colors tracking-wide">AI Tools</h3>
-              <div class="mt-1 sm:mt-1.5 inline-flex items-center px-2.5 sm:px-3 py-0.5 rounded-full bg-[#F5A623]/10 border border-[#F5A623]/25 text-[11px] sm:text-xs font-display font-semibold text-[#FBBF24]">
+            <div class="mt-2.5 sm:mt-4 text-center">
+              <h3 class="font-display font-bold text-xs sm:text-base md:text-lg text-white group-hover:text-[#fca5a5] transition-colors tracking-wide">AI Tools</h3>
+              <div class="mt-1 sm:mt-1.5 inline-flex items-center px-2.5 sm:px-3 py-0.5 rounded-full bg-[#C82909]/10 border border-[#C82909]/25 text-[11px] sm:text-xs font-display font-semibold text-[#fca5a5]">
                 <span>50%</span>
               </div>
             </div>
@@ -722,30 +728,31 @@
           </p>
         </div>
 
-        <!-- Long Landscape NDA Banner (Restored & Upgraded) -->
-        <div class="w-full mt-6 p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-[#C82909]/30 bg-gradient-to-r from-[#1a0502] via-[#2d0904] to-[#1a0502] shadow-[0_8px_30px_rgba(200,41,9,0.15)] flex flex-col md:flex-row items-center md:justify-between gap-6 relative overflow-hidden reveal-on-scroll" style="transition-delay: 100ms;">
+        <!-- Long Landscape NDA Archive Banner (Minimal & Aesthetic) -->
+        <div class="w-full mt-6 p-5 sm:p-7 rounded-2xl sm:rounded-3xl nda-archive-banner flex flex-col md:flex-row items-center md:justify-between gap-5 relative overflow-hidden reveal-on-scroll" style="transition-delay: 100ms;">
           
-          <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9InJnYmEoMjAwLCA0MSwgOSwgMC4xNSkiLz48L3N2Zz4=')] opacity-50"></div>
-          
-          <div class="flex flex-col sm:flex-row items-center text-center sm:text-left gap-5 sm:gap-6 relative z-10 w-full md:w-auto flex-1">
-            <div class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-2xl bg-[#C82909]/10 border border-[#C82909]/40 flex items-center justify-center shadow-[inset_0_0_20px_rgba(200,41,9,0.2)]">
-              <svg class="w-8 h-8 sm:w-10 sm:h-10 text-[#fca5a5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          <div class="flex flex-col sm:flex-row items-center text-center sm:text-left gap-4 sm:gap-5 relative z-10 w-full md:w-auto flex-1">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-2xl bg-white/[0.04] border border-white/[0.1] flex items-center justify-center shadow-inner">
+              <svg class="w-6 h-6 text-[#fca5a5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
             </div>
             <div class="max-w-2xl">
-              <h3 class="text-white font-display font-black text-2xl sm:text-3xl leading-tight mb-2">134+ Confidential Projects</h3>
-              <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
-                Due to strict <strong class="text-white font-semibold">Non-Disclosure Agreements (NDA)</strong> with premium agencies and enterprise clients, over 134 of my most high-impact visual systems cannot be displayed publicly. What you see below is just a glimpse.
+              <div class="flex items-center justify-center sm:justify-start gap-2 mb-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#C82909]"></span>
+                <h3 class="text-white font-display font-bold text-lg sm:text-2xl leading-tight">134+ Confidential Projects</h3>
+              </div>
+              <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                Due to strict <strong class="text-slate-200 font-semibold">Non-Disclosure Agreements (NDA)</strong> with premium agencies and enterprise clients, over 134 high-impact visual systems remain protected. What you see below is an authorized preview.
               </p>
             </div>
           </div>
 
-          <div class="relative z-10 shrink-0 w-full md:w-auto flex justify-center md:justify-end mt-2 md:mt-0">
-            <div class="px-5 py-2.5 rounded-full border border-[#C82909]/50 bg-[#C82909]/10  flex items-center gap-3 shadow-[0_0_20px_rgba(200,41,9,0.2)]">
-              <span class="relative flex h-2.5 w-2.5">
+          <div class="relative z-10 shrink-0 w-full md:w-auto flex justify-center md:justify-end mt-1 md:mt-0">
+            <div class="px-4 py-2 rounded-full border border-white/[0.1] bg-white/[0.03] flex items-center gap-2.5 shadow-sm">
+              <span class="relative flex h-2 w-2">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#fca5a5] opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#fca5a5]"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-[#C82909]"></span>
               </span>
-              <span class="text-[#fca5a5] font-bold text-xs sm:text-sm tracking-[2px] uppercase">NDA Protected</span>
+              <span class="text-[#fca5a5] font-semibold text-xs tracking-[1.5px] uppercase">NDA Protected</span>
             </div>
           </div>
 
@@ -957,11 +964,10 @@
                 </div>
                 
                 <!-- Role Title -->
-                <h4 class="font-display font-semibold text-[15px] sm:text-[17px] text-[#fca5a5] mb-3">Manager, Graphic Designer & Customer Support</h4>
+                <h4 class="font-display font-semibold text-[15px] sm:text-[17px] text-[#fca5a5] mb-3">Manager &amp; Graphic Designer</h4>
 
                 <!-- Bullets -->
                 <ul class="space-y-2 text-[13px] sm:text-[14px] text-slate-300 list-none leading-relaxed">
-                   <li class="relative pl-4"><span class="absolute left-0 top-2 w-1.5 h-1.5 rounded-full bg-white/20 group-hover/item:bg-[#C82909]/60 transition-colors"></span><strong class="text-white">Customer Call Support:</strong> Handled inbound & outbound calls, resolved user queries, managed escalations, and maintained high satisfaction scores for fintech product customers.</li>
                    <li class="relative pl-4"><span class="absolute left-0 top-2 w-1.5 h-1.5 rounded-full bg-white/20 group-hover/item:bg-[#C82909]/60 transition-colors"></span><strong class="text-white">Team Manager:</strong> Supervised daily operations, coordinated cross-functional tasks, delegated responsibilities, and ensured team targets were consistently met.</li>
                    <li class="relative pl-4"><span class="absolute left-0 top-2 w-1.5 h-1.5 rounded-full bg-white/20 group-hover/item:bg-[#C82909]/60 transition-colors"></span><strong class="text-white">Graphic Designer:</strong> Independently designed all in-house marketing banners, brand visuals, promotional creatives, and digital assets using Canva.</li>
                    <li class="relative pl-4"><span class="absolute left-0 top-2 w-1.5 h-1.5 rounded-full bg-white/20 group-hover/item:bg-[#C82909]/60 transition-colors"></span><strong class="text-white">Social Media Manager:</strong> Solely managed brand presence across Instagram, Facebook, and all major platforms — creating content, publishing posts, and growing audience engagement end-to-end.</li>
@@ -1249,7 +1255,7 @@
               <h4 class="font-display font-bold text-white text-sm sm:text-base">Professional Foundation established in 2022</h4>
             </div>
             <p class="text-xs text-slate-400 mt-0.5 max-w-xl">
-              Proven track record across Customer Support, Sales, and high-volume Canva design for 100+ clients. Open to new milestone additions.
+              Proven track record across Brand Design, Operations Management, and high-volume Canva design for 100+ clients. Open to new milestone additions.
             </p>
           </div>
         </div>
@@ -1329,7 +1335,7 @@
 
 
   <!-- ══════════════════════════════════════════════════════════
-       5.5 CLIENT REVIEWS & ENDORSEMENTS (COMPACT & TRENDING)
+       5.5 CLIENT REVIEWS & ENDORSEMENTS (PROFESSIONAL SLIDER)
   ══════════════════════════════════════════════════════════ -->
   <section id="reviews" class="relative z-10 py-10 sm:py-16 px-4 sm:px-6 border-t border-white/[0.06] reveal-on-scroll">
     <div class="max-w-6xl mx-auto">
@@ -1346,242 +1352,276 @@
         </p>
       </div>
 
-      <!-- Channel Filter Chips (Compact) -->
-      <div class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 mb-4">
-        <button type="button" onclick="filterReviews('all', this)" class="review-filter-btn px-3 py-1 rounded-full text-[11px] font-display font-semibold border transition-all bg-[#C82909] text-white border-[#C82909] shadow-[0_0_15px_rgba(200,41,9,0.35)]">
-          All Reviews (6)
-        </button>
-        <button type="button" onclick="filterReviews('whatsapp', this)" class="review-filter-btn px-3 py-1 rounded-full text-[11px] font-display font-semibold border transition-all bg-white/[0.03] text-slate-400 border-white/[0.08] hover:text-white hover:border-emerald-500/40 flex items-center gap-1.5">
-          <span class="text-emerald-400"><svg class="w-3.5 h-3.5 anim-whatsapp-icon shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.9-1.3.2-.6.2-1.1.2-1.3-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.6-1.3l-.3-.2-3 .8.8-2.9-.2-.3C3.9 15 3.4 13.5 3.4 12c0-4.7 3.9-8.6 8.6-8.6 4.7 0 8.6 3.9 8.6 8.6 0 4.7-3.9 8.6-8.6 8.6z"/></svg></span>
-          <span>WhatsApp</span>
-        </button>
-        <button type="button" onclick="filterReviews('telegram', this)" class="review-filter-btn px-3 py-1 rounded-full text-[11px] font-display font-semibold border transition-all bg-white/[0.03] text-slate-400 border-white/[0.08] hover:text-white hover:border-sky-500/40 flex items-center gap-1.5">
-          <span class="text-sky-400"><svg class="w-3.5 h-3.5 anim-telegram-icon shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.52 2.77-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .37z"/></svg></span>
-          <span>Telegram</span>
-        </button>
-        <button type="button" onclick="filterReviews('email', this)" class="review-filter-btn px-3 py-1 rounded-full text-[11px] font-display font-semibold border transition-all bg-white/[0.03] text-slate-400 border-white/[0.08] hover:text-white hover:border-[#C82909]/40 flex items-center gap-1.5">
-          <span class="text-[#fca5a5]"><svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg></span>
-          <span>Official Email</span>
-        </button>
+      <!-- Centered Channel Filter Pills -->
+      <div class="flex items-center justify-center mb-8">
+        <div class="inline-flex items-center p-1 rounded-full bg-white/[0.03] border border-white/[0.08] backdrop-blur-md gap-1 max-w-full overflow-x-auto hide-scrollbars">
+          <button type="button" onclick="filterReviews('all', this)" class="review-filter-btn px-4 py-1.5 rounded-full text-xs font-display font-semibold transition-all bg-[#C82909] text-white border border-[#C82909] shadow-[0_0_15px_rgba(200,41,9,0.35)]">
+            All Reviews (6)
+          </button>
+          <button type="button" onclick="filterReviews('whatsapp', this)" class="review-filter-btn px-4 py-1.5 rounded-full text-xs font-display font-semibold transition-all bg-transparent text-slate-400 border border-transparent hover:text-white flex items-center gap-1.5">
+            <span class="text-emerald-400"><svg class="w-3.5 h-3.5 anim-whatsapp-icon shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.9-1.3.2-.6.2-1.1.2-1.3-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.6-1.3l-.3-.2-3 .8.8-2.9-.2-.3C3.9 15 3.4 13.5 3.4 12c0-4.7 3.9-8.6 8.6-8.6 4.7 0 8.6 3.9 8.6 8.6 0 4.7-3.9 8.6-8.6 8.6z"/></svg></span>
+            <span>WhatsApp (2)</span>
+          </button>
+          <button type="button" onclick="filterReviews('telegram', this)" class="review-filter-btn px-4 py-1.5 rounded-full text-xs font-display font-semibold transition-all bg-transparent text-slate-400 border border-transparent hover:text-white flex items-center gap-1.5">
+            <span class="text-sky-400"><svg class="w-3.5 h-3.5 anim-telegram-icon shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.52 2.77-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .37z"/></svg></span>
+            <span>Telegram (2)</span>
+          </button>
+          <button type="button" onclick="filterReviews('email', this)" class="review-filter-btn px-4 py-1.5 rounded-full text-xs font-display font-semibold transition-all bg-transparent text-slate-400 border border-transparent hover:text-white flex items-center gap-1.5">
+            <span class="text-[#fca5a5]"><svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg></span>
+            <span>Official Email (2)</span>
+          </button>
+        </div>
       </div>
 
-      <!-- Modern Compact Reviews Grid (3 columns on desktop, 2 on tablet, 1 on mobile) -->
-      
-      <!-- Swipe Indicator Hint -->
-      <div class="flex items-center justify-center gap-2 mb-6 sm:mb-8 text-slate-400 opacity-80 animate-pulse">
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-        <span class="text-[11px] sm:text-xs font-mono tracking-widest uppercase">Swipe to explore</span>
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      <!-- Professional Reviews Slider Viewport -->
+      <div class="relative w-full group/slider overflow-hidden">
+        <!-- Slider Track (Horizontal Snap + Drag Support) -->
+        <div id="reviews-slider-track" class="reviews-slider-track hide-scrollbars">
+          
+          <!-- Review 1: Arjun Mehta -->
+          <div data-channel="whatsapp" class="review-card review-card-modern review-slider-item shrink-0 snap-start">
+            <span class="absolute top-3 right-5 text-5xl font-serif text-white/[0.04] pointer-events-none select-none">“</span>
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <div class="flex items-center gap-0.5 text-amber-400 text-xs">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-medium bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+                  <svg class="w-3 h-3 anim-whatsapp-icon shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.9-1.3.2-.6.2-1.1.2-1.3-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.6-1.3l-.3-.2-3 .8.8-2.9-.2-.3C3.9 15 3.4 13.5 3.4 12c0-4.7 3.9-8.6 8.6-8.6 4.7 0 8.6 3.9 8.6 8.6 0 4.7-3.9 8.6-8.6 8.6z"/></svg>
+                  <span>WhatsApp</span>
+                </span>
+              </div>
+              <span class="text-[11px] font-mono text-[#fca5a5] uppercase tracking-wider block mb-2 font-medium">Brand Identity &amp; Canva Kit</span>
+              <p class="text-[13px] sm:text-[13.5px] text-slate-300 leading-relaxed italic mb-4">
+                "The logo and brand guidelines look insane! Everyone in our team loved the minimalistic crimson icon. The Canva templates made daily marketing effortless."
+              </p>
+            </div>
+            <div class="pt-3 border-t border-white/[0.06] flex items-center justify-between">
+              <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-full bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-display font-bold text-xs shrink-0">
+                  AM
+                </div>
+                <div>
+                  <h4 class="font-display font-bold text-white text-xs leading-none">Arjun Mehta</h4>
+                  <span class="text-[10.5px] text-slate-400 block mt-0.5">Founder • Zenora Apparel</span>
+                </div>
+              </div>
+              <span class="text-[10px] text-emerald-400 font-medium inline-flex items-center gap-1">
+                <svg class="w-3 h-3 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Verified</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Review 2: David Miller -->
+          <div data-channel="telegram" class="review-card review-card-modern review-slider-item shrink-0 snap-start">
+            <span class="absolute top-3 right-5 text-5xl font-serif text-white/[0.04] pointer-events-none select-none">“</span>
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <div class="flex items-center gap-0.5 text-amber-400 text-xs">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-medium bg-sky-500/10 border border-sky-500/20 text-sky-400">
+                  <svg class="w-3 h-3 anim-telegram-icon shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.52 2.77-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .37z"/></svg>
+                  <span>Telegram</span>
+                </span>
+              </div>
+              <span class="text-[11px] font-mono text-[#fca5a5] uppercase tracking-wider block mb-2 font-medium">30+ Ad Banners (CTR 3.8%)</span>
+              <p class="text-[13px] sm:text-[13.5px] text-slate-300 leading-relaxed italic mb-4">
+                "Bibek is a beast with turnaround times. Delivered 30 banner variations in 36 hours. The CTR on our visual hook set jumped to 3.8%—game changer for our ad spend."
+              </p>
+            </div>
+            <div class="pt-3 border-t border-white/[0.06] flex items-center justify-between">
+              <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-full bg-sky-500/15 border border-sky-500/30 flex items-center justify-center text-sky-400 font-display font-bold text-xs shrink-0">
+                  DM
+                </div>
+                <div>
+                  <h4 class="font-display font-bold text-white text-xs leading-none">David Miller</h4>
+                  <span class="text-[10.5px] text-slate-400 block mt-0.5">Growth Lead • Apex Digital</span>
+                </div>
+              </div>
+              <span class="text-[10px] text-sky-400 font-medium inline-flex items-center gap-1">
+                <svg class="w-3 h-3 text-sky-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Retainer</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Review 3: Vikramaditya Rao -->
+          <div data-channel="email" class="review-card review-card-modern review-slider-item shrink-0 snap-start">
+            <span class="absolute top-3 right-5 text-5xl font-serif text-white/[0.04] pointer-events-none select-none">“</span>
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <div class="flex items-center gap-0.5 text-amber-400 text-xs">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-medium bg-[#C82909]/10 border border-[#C82909]/20 text-[#fca5a5]">
+                  <svg class="w-3 h-3 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                  <span>Email Sign-off</span>
+                </span>
+              </div>
+              <span class="text-[11px] font-mono text-[#fca5a5] uppercase tracking-wider block mb-2 font-medium">Google Play ASO (+41% Lift)</span>
+              <p class="text-[13px] sm:text-[13.5px] text-slate-300 leading-relaxed italic mb-4">
+                "Our organic conversion rate jumped from 18.4% to 26.1% with the new panoramic screenshots, bringing over 65,000 extra installs in the first week alone."
+              </p>
+            </div>
+            <div class="pt-3 border-t border-white/[0.06] flex items-center justify-between">
+              <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-full bg-[#C82909]/15 border border-[#C82909]/30 flex items-center justify-center text-[#fca5a5] font-display font-bold text-xs shrink-0">
+                  VR
+                </div>
+                <div>
+                  <h4 class="font-display font-bold text-white text-xs leading-none">Vikramaditya Rao</h4>
+                  <span class="text-[10.5px] text-slate-400 block mt-0.5">Product Director • HyperPlay</span>
+                </div>
+              </div>
+              <span class="text-[10px] text-emerald-400 font-medium inline-flex items-center gap-1">
+                <svg class="w-3 h-3 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Enterprise</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Review 4: Kavita Sen -->
+          <div data-channel="whatsapp" class="review-card review-card-modern review-slider-item shrink-0 snap-start">
+            <span class="absolute top-3 right-5 text-5xl font-serif text-white/[0.04] pointer-events-none select-none">“</span>
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <div class="flex items-center gap-0.5 text-amber-400 text-xs">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-medium bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+                  <svg class="w-3 h-3 anim-whatsapp-icon shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.9-1.3.2-.6.2-1.1.2-1.3-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.6-1.3l-.3-.2-3 .8.8-2.9-.2-.3C3.9 15 3.4 13.5 3.4 12c0-4.7 3.9-8.6 8.6-8.6 4.7 0 8.6 3.9 8.6 8.6 0 4.7-3.9 8.6-8.6 8.6z"/></svg>
+                  <span>WhatsApp</span>
+                </span>
+              </div>
+              <span class="text-[11px] font-mono text-[#fca5a5] uppercase tracking-wider block mb-2 font-medium">Packaging &amp; Promo Banners</span>
+              <p class="text-[13px] sm:text-[13.5px] text-slate-300 leading-relaxed italic mb-4">
+                "The packaging mockup was approved by the printer on first review with zero margin errors. Fast revisions and exceptional creative eye throughout."
+              </p>
+            </div>
+            <div class="pt-3 border-t border-white/[0.06] flex items-center justify-between">
+              <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-full bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-display font-bold text-xs shrink-0">
+                  KS
+                </div>
+                <div>
+                  <h4 class="font-display font-bold text-white text-xs leading-none">Kavita Sen</h4>
+                  <span class="text-[10.5px] text-slate-400 block mt-0.5">Head of Growth • FreshBite</span>
+                </div>
+              </div>
+              <span class="text-[10px] text-emerald-400 font-medium inline-flex items-center gap-1">
+                <svg class="w-3 h-3 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Verified</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Review 5: Alex Chen -->
+          <div data-channel="telegram" class="review-card review-card-modern review-slider-item shrink-0 snap-start">
+            <span class="absolute top-3 right-5 text-5xl font-serif text-white/[0.04] pointer-events-none select-none">“</span>
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <div class="flex items-center gap-0.5 text-amber-400 text-xs">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-medium bg-sky-500/10 border border-sky-500/20 text-sky-400">
+                  <svg class="w-3 h-3 anim-telegram-icon shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.52 2.77-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .37z"/></svg>
+                  <span>Telegram</span>
+                </span>
+              </div>
+              <span class="text-[11px] font-mono text-[#fca5a5] uppercase tracking-wider block mb-2 font-medium">3D Assets &amp; Launch Graphics</span>
+              <p class="text-[13px] sm:text-[13.5px] text-slate-300 leading-relaxed italic mb-4">
+                "Top-tier visual execution. The AI-blended 3D assets gave our protocol launch that slick AAA dark-mode look we needed. Zero hand-holding required."
+              </p>
+            </div>
+            <div class="pt-3 border-t border-white/[0.06] flex items-center justify-between">
+              <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-full bg-sky-500/15 border border-sky-500/30 flex items-center justify-center text-sky-400 font-display font-bold text-xs shrink-0">
+                  AC
+                </div>
+                <div>
+                  <h4 class="font-display font-bold text-white text-xs leading-none">Alex Chen</h4>
+                  <span class="text-[10.5px] text-slate-400 block mt-0.5">Web3 Lead • Kroma Protocol</span>
+                </div>
+              </div>
+              <span class="text-[10px] text-emerald-400 font-medium inline-flex items-center gap-1">
+                <svg class="w-3 h-3 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Verified</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Review 6: Marcus Vance -->
+          <div data-channel="email" class="review-card review-card-modern review-slider-item shrink-0 snap-start">
+            <span class="absolute top-3 right-5 text-5xl font-serif text-white/[0.04] pointer-events-none select-none">“</span>
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <div class="flex items-center gap-0.5 text-amber-400 text-xs">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-medium bg-[#C82909]/10 border border-[#C82909]/20 text-[#fca5a5]">
+                  <svg class="w-3 h-3 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                  <span>Email Sign-off</span>
+                </span>
+              </div>
+              <span class="text-[11px] font-mono text-[#fca5a5] uppercase tracking-wider block mb-2 font-medium">Vector Marks &amp; Typography</span>
+              <p class="text-[13px] sm:text-[13.5px] text-slate-300 leading-relaxed italic mb-4">
+                "Exceptional delivery. The precision of the vector assets and comprehensive typography documentation exceeded our client's expectations across time zones."
+              </p>
+            </div>
+            <div class="pt-3 border-t border-white/[0.06] flex items-center justify-between">
+              <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-full bg-[#C82909]/15 border border-[#C82909]/30 flex items-center justify-center text-[#fca5a5] font-display font-bold text-xs shrink-0">
+                  MV
+                </div>
+                <div>
+                  <h4 class="font-display font-bold text-white text-xs leading-none">Marcus Vance</h4>
+                  <span class="text-[10.5px] text-slate-400 block mt-0.5">Creative Producer • RedPeak UK</span>
+                </div>
+              </div>
+              <span class="text-[10px] text-emerald-400 font-medium inline-flex items-center gap-1">
+                <svg class="w-3 h-3 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>International</span>
+              </span>
+            </div>
+          </div>
+
+        </div>
       </div>
 
-      <div id="reviews-grid" class="flex flex-nowrap overflow-x-auto gap-4 sm:gap-5 py-6 snap-x snap-mandatory hide-scrollbars px-4 sm:px-6" style="scroll-padding: 1.5rem;">
-        
-        <!-- Review 1: Arjun Mehta -->
-        <div data-channel="whatsapp" class="review-card review-card-modern shrink-0 snap-center w-[85vw] sm:w-[380px]">
-          <div>
-            <div class="flex items-center justify-between gap-2 mb-2">
-              <div class="flex items-center gap-0.5 text-amber-400 text-xs">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-              </div>
-              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
-                <svg class="w-3 h-3 anim-whatsapp-icon shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.9-1.3.2-.6.2-1.1.2-1.3-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.6-1.3l-.3-.2-3 .8.8-2.9-.2-.3C3.9 15 3.4 13.5 3.4 12c0-4.7 3.9-8.6 8.6-8.6 4.7 0 8.6 3.9 8.6 8.6 0 4.7-3.9 8.6-8.6 8.6z"/></svg>
-                <span>WhatsApp</span>
-              </span>
-            </div>
-            <span class="text-[10.5px] font-mono text-[#fca5a5] uppercase tracking-wider block mb-2 font-medium">Brand Identity &amp; Canva Kit</span>
-            <p class="text-xs sm:text-[13px] text-slate-300 leading-relaxed italic mb-4">
-              "The logo and brand guidelines look insane! Everyone in our team loved the minimalistic crimson icon. The Canva templates made daily marketing effortless."
-            </p>
-          </div>
-          <div class="pt-3 border-t border-white/[0.06] flex items-center justify-between">
-            <div class="flex items-center gap-2.5">
-              <div class="w-8 h-8 rounded-full bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-display font-bold text-xs shrink-0">
-                AM
-              </div>
-              <div>
-                <h4 class="font-display font-bold text-white text-xs leading-none">Arjun Mehta</h4>
-                <span class="text-[10.5px] text-slate-400 block mt-0.5">Founder • Zenora Apparel</span>
-              </div>
-            </div>
-            <span class="text-[10px] text-emerald-400 font-medium inline-flex items-center gap-1">
-              <svg class="w-3 h-3 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>Verified</span>
-            </span>
-          </div>
+      <!-- Unified Managed Slider Dock -->
+      <div id="reviews-nav-dock" class="flex flex-col sm:flex-row items-center justify-between gap-4 mt-7 pt-4 border-t border-white/[0.06] px-1">
+        <!-- Left: Trust Signal -->
+        <div class="flex items-center gap-2 text-xs font-mono text-slate-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>100% Direct Client Endorsements</span>
         </div>
 
-        <!-- Review 2: David Miller -->
-        <div data-channel="telegram" class="review-card review-card-modern shrink-0 snap-center w-[85vw] sm:w-[380px]">
-          <div>
-            <div class="flex items-center justify-between gap-2 mb-2">
-              <div class="flex items-center gap-0.5 text-amber-400 text-xs">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-              </div>
-              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-sky-500/10 border border-sky-500/20 text-sky-400">
-                <svg class="w-3 h-3 anim-telegram-icon shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.52 2.77-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .37z"/></svg>
-                <span>Telegram</span>
-              </span>
-            </div>
-            <span class="text-[10.5px] font-mono text-[#fca5a5] uppercase tracking-wider block mb-2 font-medium">30+ Ad Banners (CTR 3.8%)</span>
-            <p class="text-xs sm:text-[13px] text-slate-300 leading-relaxed italic mb-4">
-              "Bibek is a beast with turnaround times. Delivered 30 banner variations in 36 hours. The CTR on our visual hook set jumped to 3.8%—game changer for our ad spend."
-            </p>
-          </div>
-          <div class="pt-3 border-t border-white/[0.06] flex items-center justify-between">
-            <div class="flex items-center gap-2.5">
-              <div class="w-8 h-8 rounded-full bg-sky-500/15 border border-sky-500/30 flex items-center justify-center text-sky-400 font-display font-bold text-xs shrink-0">
-                DM
-              </div>
-              <div>
-                <h4 class="font-display font-bold text-white text-xs leading-none">David Miller</h4>
-                <span class="text-[10.5px] text-slate-400 block mt-0.5">Growth Lead • Apex Digital</span>
-              </div>
-            </div>
-            <span class="text-[10px] text-sky-400 font-medium inline-flex items-center gap-1">
-              <svg class="w-3 h-3 text-sky-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>Retainer</span>
-            </span>
-          </div>
-        </div>
+        <!-- Right: Compact Control Capsule -->
+        <div class="inline-flex items-center gap-2.5 p-1 rounded-full bg-white/[0.03] border border-white/[0.08] backdrop-blur-md shadow-sm">
+          <!-- Prev Button -->
+          <button type="button" id="reviews-prev-btn" onclick="slideReviews(-1)" class="slider-nav-btn" aria-label="Previous review">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
 
-        <!-- Review 3: Vikramaditya Rao -->
-        <div data-channel="email" class="review-card review-card-modern shrink-0 snap-center w-[85vw] sm:w-[380px]">
-          <div>
-            <div class="flex items-center justify-between gap-2 mb-2">
-              <div class="flex items-center gap-0.5 text-amber-400 text-xs">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-              </div>
-              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-[#C82909]/10 border border-[#C82909]/20 text-[#fca5a5]">
-                <svg class="w-3 h-3 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-                <span>Email Sign-off</span>
-              </span>
-            </div>
-            <span class="text-[10.5px] font-mono text-[#fca5a5] uppercase tracking-wider block mb-2 font-medium">Google Play ASO (+41% Lift)</span>
-            <p class="text-xs sm:text-[13px] text-slate-300 leading-relaxed italic mb-4">
-              "Our organic conversion rate jumped from 18.4% to 26.1% with the new panoramic screenshots, bringing over 65,000 extra installs in the first week alone."
-            </p>
-          </div>
-          <div class="pt-3 border-t border-white/[0.06] flex items-center justify-between">
-            <div class="flex items-center gap-2.5">
-              <div class="w-8 h-8 rounded-full bg-[#C82909]/15 border border-[#C82909]/30 flex items-center justify-center text-[#fca5a5] font-display font-bold text-xs shrink-0">
-                VR
-              </div>
-              <div>
-                <h4 class="font-display font-bold text-white text-xs leading-none">Vikramaditya Rao</h4>
-                <span class="text-[10.5px] text-slate-400 block mt-0.5">Product Director • HyperPlay</span>
-              </div>
-            </div>
-            <span class="text-[10px] text-emerald-400 font-medium inline-flex items-center gap-1">
-              <svg class="w-3 h-3 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>Enterprise</span>
-            </span>
-          </div>
-        </div>
+          <!-- Interactive Pagination Dots -->
+          <div id="reviews-pagination-dots" class="flex items-center gap-1.5 px-1.5"></div>
 
-        <!-- Review 4: Kavita Sen -->
-        <div data-channel="whatsapp" class="review-card review-card-modern shrink-0 snap-center w-[85vw] sm:w-[380px]">
-          <div>
-            <div class="flex items-center justify-between gap-2 mb-2">
-              <div class="flex items-center gap-0.5 text-amber-400 text-xs">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-              </div>
-              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
-                <svg class="w-3 h-3 anim-whatsapp-icon shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.9-1.3.2-.6.2-1.1.2-1.3-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.6-1.3l-.3-.2-3 .8.8-2.9-.2-.3C3.9 15 3.4 13.5 3.4 12c0-4.7 3.9-8.6 8.6-8.6 4.7 0 8.6 3.9 8.6 8.6 0 4.7-3.9 8.6-8.6 8.6z"/></svg>
-                <span>WhatsApp</span>
-              </span>
-            </div>
-            <span class="text-[10.5px] font-mono text-[#fca5a5] uppercase tracking-wider block mb-2 font-medium">Packaging &amp; Promo Banners</span>
-            <p class="text-xs sm:text-[13px] text-slate-300 leading-relaxed italic mb-4">
-              "The packaging mockup was approved by the printer on first review with zero margin errors. Fast revisions and exceptional creative eye throughout."
-            </p>
+          <!-- Counter Pill -->
+          <div id="reviews-counter" class="text-xs font-mono text-slate-400 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.06] flex items-center gap-1.5">
+            <span id="reviews-current-num" class="text-white font-bold">01</span>
+            <span class="text-slate-600">/</span>
+            <span id="reviews-total-num">02</span>
           </div>
-          <div class="pt-3 border-t border-white/[0.06] flex items-center justify-between">
-            <div class="flex items-center gap-2.5">
-              <div class="w-8 h-8 rounded-full bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-display font-bold text-xs shrink-0">
-                KS
-              </div>
-              <div>
-                <h4 class="font-display font-bold text-white text-xs leading-none">Kavita Sen</h4>
-                <span class="text-[10.5px] text-slate-400 block mt-0.5">Head of Growth • FreshBite</span>
-              </div>
-            </div>
-            <span class="text-[10px] text-emerald-400 font-medium inline-flex items-center gap-1">
-              <svg class="w-3 h-3 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>Verified</span>
-            </span>
-          </div>
-        </div>
 
-        <!-- Review 5: Alex Chen -->
-        <div data-channel="telegram" class="review-card review-card-modern shrink-0 snap-center w-[85vw] sm:w-[380px]">
-          <div>
-            <div class="flex items-center justify-between gap-2 mb-2">
-              <div class="flex items-center gap-0.5 text-amber-400 text-xs">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-              </div>
-              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-sky-500/10 border border-sky-500/20 text-sky-400">
-                <svg class="w-3 h-3 anim-telegram-icon shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.52 2.77-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .37z"/></svg>
-                <span>Telegram</span>
-              </span>
-            </div>
-            <span class="text-[10.5px] font-mono text-[#fca5a5] uppercase tracking-wider block mb-2 font-medium">3D Assets &amp; Launch Graphics</span>
-            <p class="text-xs sm:text-[13px] text-slate-300 leading-relaxed italic mb-4">
-              "Top-tier visual execution. The AI-blended 3D assets gave our protocol launch that slick AAA dark-mode look we needed. Zero hand-holding required."
-            </p>
-          </div>
-          <div class="pt-3 border-t border-white/[0.06] flex items-center justify-between">
-            <div class="flex items-center gap-2.5">
-              <div class="w-8 h-8 rounded-full bg-sky-500/15 border border-sky-500/30 flex items-center justify-center text-sky-400 font-display font-bold text-xs shrink-0">
-                AC
-              </div>
-              <div>
-                <h4 class="font-display font-bold text-white text-xs leading-none">Alex Chen</h4>
-                <span class="text-[10.5px] text-slate-400 block mt-0.5">Web3 Lead • Kroma Protocol</span>
-              </div>
-            </div>
-            <span class="text-[10px] text-emerald-400 font-medium inline-flex items-center gap-1">
-              <svg class="w-3 h-3 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>Verified</span>
-            </span>
-          </div>
+          <!-- Next Button -->
+          <button type="button" id="reviews-next-btn" onclick="slideReviews(1)" class="slider-nav-btn" aria-label="Next review">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
         </div>
-
-        <!-- Review 6: Marcus Vance -->
-        <div data-channel="email" class="review-card review-card-modern shrink-0 snap-center w-[85vw] sm:w-[380px]">
-          <div>
-            <div class="flex items-center justify-between gap-2 mb-2">
-              <div class="flex items-center gap-0.5 text-amber-400 text-xs">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-              </div>
-              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-[#C82909]/10 border border-[#C82909]/20 text-[#fca5a5]">
-                <svg class="w-3 h-3 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-                <span>Email Sign-off</span>
-              </span>
-            </div>
-            <span class="text-[10.5px] font-mono text-[#fca5a5] uppercase tracking-wider block mb-2 font-medium">Vector Marks &amp; Typography</span>
-            <p class="text-xs sm:text-[13px] text-slate-300 leading-relaxed italic mb-4">
-              "Exceptional delivery. The precision of the vector assets and comprehensive typography documentation exceeded our client's expectations across time zones."
-            </p>
-          </div>
-          <div class="pt-3 border-t border-white/[0.06] flex items-center justify-between">
-            <div class="flex items-center gap-2.5">
-              <div class="w-8 h-8 rounded-full bg-[#C82909]/15 border border-[#C82909]/30 flex items-center justify-center text-[#fca5a5] font-display font-bold text-xs shrink-0">
-                MV
-              </div>
-              <div>
-                <h4 class="font-display font-bold text-white text-xs leading-none">Marcus Vance</h4>
-                <span class="text-[10.5px] text-slate-400 block mt-0.5">Creative Producer • RedPeak UK</span>
-              </div>
-            </div>
-            <span class="text-[10px] text-emerald-400 font-medium inline-flex items-center gap-1">
-              <svg class="w-3 h-3 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>International</span>
-            </span>
-          </div>
-        </div>
-
       </div>
-
     </div>
   </section>
   <!-- ══════════════════════════════════════════════════════════
@@ -1970,38 +2010,259 @@
     window.addEventListener('scroll', onScrollThrottled, { passive: true });
 
     // ──────────────────────────────────────────────────────────
-    // CLIENT REVIEWS INTERACTIVE CHANNEL FILTER
+    // PROFESSIONAL CLIENT REVIEWS SLIDER & CHANNEL FILTER
     // ──────────────────────────────────────────────────────────
+    let currentReviewPage = 0;
+    let reviewAutoplayTimer = null;
+    let isReviewHovered = false;
+
+    function getItemsPerView() {
+      if (window.innerWidth >= 1024) return 3;
+      if (window.innerWidth >= 640) return 2;
+      return 1;
+    }
+
+    function getVisibleReviewCards() {
+      const track = document.getElementById('reviews-slider-track') || document.getElementById('reviews-grid');
+      if (!track) return [];
+      return Array.from(track.querySelectorAll('.review-card')).filter(card => !card.classList.contains('hidden') && card.style.display !== 'none');
+    }
+
+    function getTotalReviewPages() {
+      const visible = getVisibleReviewCards();
+      const perView = getItemsPerView();
+      return Math.max(1, Math.ceil(visible.length / perView));
+    }
+
+    function updateSliderUI() {
+      const visibleCards = getVisibleReviewCards();
+      const perView = getItemsPerView();
+      const totalPages = getTotalReviewPages();
+      const track = document.getElementById('reviews-slider-track') || document.getElementById('reviews-grid');
+
+      if (track) {
+        if (visibleCards.length <= perView) {
+          track.classList.add('is-centered');
+        } else {
+          track.classList.remove('is-centered');
+        }
+      }
+
+      if (currentReviewPage >= totalPages) currentReviewPage = totalPages - 1;
+      if (currentReviewPage < 0) currentReviewPage = 0;
+
+      const currentNum = document.getElementById('reviews-current-num');
+      const totalNum = document.getElementById('reviews-total-num');
+      if (currentNum) currentNum.textContent = String(currentReviewPage + 1).padStart(2, '0');
+      if (totalNum) totalNum.textContent = String(totalPages).padStart(2, '0');
+
+      // Update dots
+      const dotsContainer = document.getElementById('reviews-pagination-dots');
+      if (dotsContainer) {
+        const dots = dotsContainer.querySelectorAll('.slider-pagination-dot');
+        dots.forEach((dot, idx) => {
+          if (idx === currentReviewPage) {
+            dot.classList.add('is-active');
+          } else {
+            dot.classList.remove('is-active');
+          }
+        });
+      }
+
+      // Toggle Prev/Next disabled state if only 1 page
+      const prevBtn = document.getElementById('reviews-prev-btn');
+      const nextBtn = document.getElementById('reviews-next-btn');
+      if (prevBtn && nextBtn) {
+        if (totalPages <= 1) {
+          prevBtn.disabled = true;
+          nextBtn.disabled = true;
+        } else {
+          prevBtn.disabled = false;
+          nextBtn.disabled = false;
+        }
+      }
+    }
+
+    function slideReviews(direction) {
+      const totalPages = getTotalReviewPages();
+      if (totalPages <= 1) return;
+
+      let newPage = currentReviewPage + direction;
+      // Fluid cyclic looping across pages
+      if (newPage < 0) newPage = totalPages - 1;
+      if (newPage >= totalPages) newPage = 0;
+
+      goToReviewPage(newPage);
+    }
+
+    function goToReviewPage(pageIndex) {
+      const track = document.getElementById('reviews-slider-track') || document.getElementById('reviews-grid');
+      const visibleCards = getVisibleReviewCards();
+      const perView = getItemsPerView();
+      const totalPages = getTotalReviewPages();
+      if (!track || visibleCards.length === 0) return;
+
+      if (pageIndex < 0) pageIndex = 0;
+      if (pageIndex >= totalPages) pageIndex = totalPages - 1;
+
+      currentReviewPage = pageIndex;
+      const targetCardIndex = Math.min(currentReviewPage * perView, visibleCards.length - 1);
+      const targetCard = visibleCards[targetCardIndex];
+
+      if (targetCard) {
+        const targetScroll = Math.max(0, targetCard.offsetLeft - track.offsetLeft);
+        track.scrollTo({ left: targetScroll, behavior: 'smooth' });
+      }
+      updateSliderUI();
+    }
+
+    function renderPaginationDots() {
+      const dotsContainer = document.getElementById('reviews-pagination-dots');
+      if (!dotsContainer) return;
+      const totalPages = getTotalReviewPages();
+      dotsContainer.innerHTML = '';
+
+      if (totalPages <= 1) {
+        dotsContainer.style.display = 'none';
+      } else {
+        dotsContainer.style.display = 'flex';
+        for (let idx = 0; idx < totalPages; idx++) {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'slider-pagination-dot' + (idx === currentReviewPage ? ' is-active' : '');
+          dot.setAttribute('aria-label', `Go to review page ${idx + 1}`);
+          dot.onclick = () => goToReviewPage(idx);
+          dotsContainer.appendChild(dot);
+        }
+      }
+      updateSliderUI();
+    }
+
     function filterReviews(category, btnElement) {
       const cards = document.querySelectorAll('.review-card');
       const buttons = document.querySelectorAll('.review-filter-btn');
 
       buttons.forEach(btn => {
-        btn.classList.remove('bg-[#C82909]', 'text-white', 'border-[#C82909]', 'shadow-[0_0_20px_rgba(200,41,9,0.35)]');
-        btn.classList.add('bg-white/[0.03]', 'text-slate-400', 'border-white/[0.08]');
+        btn.classList.remove('bg-[#C82909]', 'text-white', 'border-[#C82909]', 'shadow-[0_0_15px_rgba(200,41,9,0.35)]');
+        btn.classList.add('bg-transparent', 'text-slate-400', 'border-transparent');
       });
 
       if (btnElement) {
-        btnElement.classList.add('bg-[#C82909]', 'text-white', 'border-[#C82909]', 'shadow-[0_0_20px_rgba(200,41,9,0.35)]');
-        btnElement.classList.remove('bg-white/[0.03]', 'text-slate-400', 'border-white/[0.08]');
+        btnElement.classList.add('bg-[#C82909]', 'text-white', 'border-[#C82909]', 'shadow-[0_0_15px_rgba(200,41,9,0.35)]');
+        btnElement.classList.remove('bg-transparent', 'text-slate-400', 'border-transparent');
       }
 
       cards.forEach(card => {
         const cardCategory = card.getAttribute('data-channel');
         if (category === 'all' || cardCategory === category) {
           card.classList.remove('hidden');
-          setTimeout(() => {
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0) scale(1)';
-          }, 20);
+          card.style.display = '';
         } else {
-          card.style.opacity = '0';
-          card.style.transform = 'translateY(12px) scale(0.97)';
-          setTimeout(() => {
-            card.classList.add('hidden');
-          }, 200);
+          card.classList.add('hidden');
+          card.style.display = 'none';
         }
       });
+
+      currentReviewPage = 0;
+      const track = document.getElementById('reviews-slider-track') || document.getElementById('reviews-grid');
+      if (track) track.scrollTo({ left: 0, behavior: 'smooth' });
+      renderPaginationDots();
+    }
+
+    function initReviewsSlider() {
+      const track = document.getElementById('reviews-slider-track') || document.getElementById('reviews-grid');
+      if (!track) return;
+
+      renderPaginationDots();
+
+      // Scroll listener to sync active dot & counter on manual swipe or trackpad scroll
+      let scrollDebounce = null;
+      track.addEventListener('scroll', () => {
+        if (scrollDebounce) cancelAnimationFrame(scrollDebounce);
+        scrollDebounce = requestAnimationFrame(() => {
+          const visibleCards = getVisibleReviewCards();
+          const perView = getItemsPerView();
+          const totalPages = getTotalReviewPages();
+          if (visibleCards.length === 0) return;
+
+          let closestPage = 0;
+          let minDistance = Infinity;
+
+          for (let p = 0; p < totalPages; p++) {
+            const cardIdx = Math.min(p * perView, visibleCards.length - 1);
+            const card = visibleCards[cardIdx];
+            if (card) {
+              const cardOffset = card.offsetLeft - track.offsetLeft;
+              const dist = Math.abs(track.scrollLeft - cardOffset);
+              if (dist < minDistance) {
+                minDistance = dist;
+                closestPage = p;
+              }
+            }
+          }
+
+          if (closestPage !== currentReviewPage) {
+            currentReviewPage = closestPage;
+            updateSliderUI();
+          }
+        });
+      }, { passive: true });
+
+      // Desktop Mouse Drag-to-Slide
+      let isDown = false;
+      let startX;
+      let scrollStart;
+
+      track.addEventListener('mousedown', (e) => {
+        isDown = true;
+        track.classList.add('is-dragging');
+        startX = e.pageX - track.offsetLeft;
+        scrollStart = track.scrollLeft;
+      });
+
+      window.addEventListener('mouseup', () => {
+        if (!isDown) return;
+        isDown = false;
+        track.classList.remove('is-dragging');
+      });
+
+      track.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - track.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        track.scrollLeft = scrollStart - walk;
+      });
+
+      // Hover and touch pauses auto-play
+      const reviewsSection = document.getElementById('reviews');
+      if (reviewsSection) {
+        reviewsSection.addEventListener('mouseenter', () => { isReviewHovered = true; });
+        reviewsSection.addEventListener('mouseleave', () => { isReviewHovered = false; });
+        reviewsSection.addEventListener('touchstart', () => { isReviewHovered = true; }, { passive: true });
+        reviewsSection.addEventListener('touchend', () => { 
+          setTimeout(() => { isReviewHovered = false; }, 2000); 
+        }, { passive: true });
+      }
+
+      // Re-render dots on window resize to match responsive pages (e.g. mobile 6 -> desktop 2)
+      window.addEventListener('resize', () => {
+        renderPaginationDots();
+      }, { passive: true });
+
+      // Smooth Ambient Autoplay
+      if (reviewAutoplayTimer) clearInterval(reviewAutoplayTimer);
+      reviewAutoplayTimer = setInterval(() => {
+        if (isReviewHovered || document.hidden) return;
+        const totalPages = getTotalReviewPages();
+        if (totalPages <= 1) return;
+
+        if (currentReviewPage >= totalPages - 1) {
+          goToReviewPage(0);
+        } else {
+          slideReviews(1);
+        }
+      }, 5500);
     }
 
     // ──────────────────────────────────────────────────────────
@@ -2101,27 +2362,26 @@
       document.addEventListener('DOMContentLoaded', () => {
         setupInteractiveIcons();
         initScrollReveals();
+        initReviewsSlider();
 
-    // Pause CSS animations when not in viewport to save CPU/GPU
-    if ('IntersectionObserver' in window) {
-      const perfObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) {
-            entry.target.style.animationPlayState = 'paused';
-          } else {
-            entry.target.style.animationPlayState = 'running';
-          }
-        });
-      }, { threshold: 0 });
-      document.querySelectorAll('.marquee-track').forEach(el => perfObserver.observe(el));
-    }
-
-        
+        // Pause CSS animations when not in viewport to save CPU/GPU
+        if ('IntersectionObserver' in window) {
+          const perfObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (!entry.isIntersecting) {
+                entry.target.style.animationPlayState = 'paused';
+              } else {
+                entry.target.style.animationPlayState = 'running';
+              }
+            });
+          }, { threshold: 0 });
+          document.querySelectorAll('.marquee-track').forEach(el => perfObserver.observe(el));
+        }
       });
     } else {
       setupInteractiveIcons();
       initScrollReveals();
-      
+      initReviewsSlider();
     }
   </script>
 
