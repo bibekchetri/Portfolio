@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&display=swap');
+
 /* ─── Ultra-Executive Obsidian & #C82909 Crimson Palette ─── */
     :root {
       --bg: #050507;
@@ -20,7 +22,7 @@
 
     body {
       background-color: var(--bg);
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "SF Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       color: var(--text-1);
       overflow-x: hidden;
       min-height: 100vh;
@@ -30,7 +32,7 @@
     }
 
         h1, h2, h3, h4, .font-display, .btn-crimson, .brand-logo-item {
-      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       letter-spacing: -0.025em;
     }
 
@@ -79,20 +81,20 @@
       animation: heroGentleFloat 5.5s ease-in-out infinite alternate;
     }
 
-    /* Soft Ambient Radial Back-Glow (No harsh spinning, smooth breathing aura) */
+    /* Soft Ambient Radial Back-Glow (Subtle breathing aura) */
     .liquid-glass-glow {
       position: absolute;
-      inset: -14px;
+      inset: -12px;
       border-radius: 36px;
       background: radial-gradient(
         circle at 50% 50%,
-        rgba(200, 41, 9, 0.45) 0%,
-        rgba(255, 75, 40, 0.22) 40%,
-        rgba(200, 41, 9, 0.08) 60%,
-        transparent 72%
+        rgba(200, 41, 9, 0.35) 0%,
+        rgba(255, 107, 87, 0.15) 40%,
+        rgba(200, 41, 9, 0.05) 65%,
+        transparent 75%
       );
-      filter: blur(32px);
-      opacity: 0.72;
+      filter: blur(28px);
+      opacity: 0.65;
       pointer-events: none;
       z-index: 0;
       animation: smoothAuraGlow 7s ease-in-out infinite alternate;
@@ -100,44 +102,42 @@
     }
 
     .liquid-glass-frame:hover .liquid-glass-glow {
-      opacity: 0.95;
-      filter: blur(38px);
+      opacity: 0.9;
+      filter: blur(34px);
     }
 
-    /* Bold Liquid Border (Self-Contained Gradient - Zero Corner Shards or Leakage) */
+    /* Refined Minimalist Liquid Rim (Delicate 2.5px hairline rim with luxury crimson sheen) */
     .liquid-glass-border {
       position: relative;
       z-index: 1;
       width: 100%;
       height: 100%;
-      padding: 5.5px;
+      padding: 2.5px;
       border-radius: 28px;
       background: conic-gradient(
         from var(--liquid-border-angle, 0deg),
-        #C82909 0deg,
-        #ff5733 45deg,
-        #ffa18c 90deg,
-        #ffffff 110deg,
-        #ff5733 140deg,
-        #C82909 180deg,
-        #ff3b14 225deg,
-        #ffa18c 270deg,
-        #ffffff 290deg,
-        #ff5733 320deg,
-        #C82909 360deg
+        rgba(200, 41, 9, 0.9) 0deg,
+        rgba(255, 107, 87, 0.5) 45deg,
+        rgba(255, 255, 255, 0.3) 90deg,
+        rgba(200, 41, 9, 0.25) 140deg,
+        rgba(200, 41, 9, 0.9) 180deg,
+        rgba(255, 107, 87, 0.5) 225deg,
+        rgba(255, 255, 255, 0.3) 270deg,
+        rgba(200, 41, 9, 0.25) 320deg,
+        rgba(200, 41, 9, 0.9) 360deg
       );
-      animation: rotateLiquidBorder 6s linear infinite;
+      animation: rotateLiquidBorder 8s linear infinite;
       box-shadow:
-        0 28px 65px -12px rgba(0, 0, 0, 0.92),
-        0 12px 28px -6px rgba(0, 0, 0, 0.75),
-        0 0 35px -5px rgba(200, 41, 9, 0.45);
+        0 20px 50px -10px rgba(0, 0, 0, 0.9),
+        0 8px 20px -4px rgba(0, 0, 0, 0.6),
+        0 0 25px -5px rgba(200, 41, 9, 0.3);
       transition: box-shadow 0.35s ease;
     }
 
     @media (max-width: 639px) {
       .liquid-glass-border {
-        padding: 4.5px;
-        border-radius: 24px;
+        padding: 2px;
+        border-radius: 22px;
       }
     }
 
@@ -308,7 +308,7 @@
       white-space: nowrap;
       opacity: 0.85;
       transition: opacity 0.3s ease;
-      font-family: 'Poppins', -apple-system, sans-serif;
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
       font-weight: 700;
       font-size: 14px;
       letter-spacing: 2.5px;
@@ -354,9 +354,10 @@
     }
 
     .project-category-card:hover {
-      border-color: rgba(200, 41, 9, 0.55);
-      box-shadow: 0 0 50px rgba(200, 41, 9, 0.2), 0 35px 65px -15px rgba(0, 0, 0, 0.8);
-      transform: perspective(1200px) translateY(-8px) scale(1.02) rotateX(3deg) rotateY(-2deg);
+      border-color: rgba(200, 41, 9, 0.45);
+      background: rgba(255, 255, 255, 0.035);
+      box-shadow: 0 20px 45px -12px rgba(0, 0, 0, 0.85), 0 0 30px rgba(200, 41, 9, 0.18);
+      transform: translateY(-6px);
       z-index: 20;
     }
 
@@ -369,7 +370,7 @@
       justify-content: center;
       gap: 10px;
       border-radius: 9999px;
-      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       font-weight: 600;
       letter-spacing: 0.3px;
       text-decoration: none;
@@ -470,11 +471,11 @@
       transition: transform 0.1s ease;
     }
 
-    /* Legacy btn-crimson upgraded with Poppins & spring motion */
+    /* Legacy btn-crimson upgraded with Plus Jakarta Sans & spring motion */
     .btn-crimson {
       background: linear-gradient(135deg, #C82909 0%, #991E06 100%);
       color: #ffffff;
-      font-family: 'Poppins', -apple-system, sans-serif;
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
       font-weight: 600;
       letter-spacing: 0.3px;
       box-shadow: 0 0 25px rgba(200, 41, 9, 0.4);
@@ -492,7 +493,7 @@
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.2);
       color: #ffffff;
-      font-family: 'Poppins', -apple-system, sans-serif;
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
       font-weight: 600;
       letter-spacing: 0.3px;
       position: relative;
@@ -534,40 +535,34 @@
     }
 
     #floating-navbar-island nav {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(200, 41, 9, 0.16) 40%, rgba(14, 9, 13, 0.74) 100%), rgba(8, 6, 10, 0.68);
-      backdrop-filter: blur(32px) saturate(200%) brightness(0.85);
-      -webkit-backdrop-filter: blur(32px) saturate(200%) brightness(0.85);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-color: rgba(255, 255, 255, 0.22) rgba(200, 41, 9, 0.35) rgba(200, 41, 9, 0.25) rgba(255, 255, 255, 0.14);
-      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.75), 
-                  0 0 22px -2px rgba(200, 41, 9, 0.2), 
-                  inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
+      background: rgba(10, 10, 14, 0.75);
+      backdrop-filter: blur(24px) saturate(160%);
+      -webkit-backdrop-filter: blur(24px) saturate(160%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.8), 
+                  0 0 20px -2px rgba(200, 41, 9, 0.15), 
+                  inset 0 1px 1px 0 rgba(255, 255, 255, 0.12);
       transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     #floating-navbar-island nav:hover {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(200, 41, 9, 0.22) 40%, rgba(18, 11, 15, 0.78) 100%), rgba(12, 8, 12, 0.72);
-      border-color: rgba(255, 255, 255, 0.3) rgba(200, 41, 9, 0.5) rgba(200, 41, 9, 0.38) rgba(255, 255, 255, 0.22);
-      box-shadow: 0 20px 42px -10px rgba(0, 0, 0, 0.85), 
-                  0 0 30px rgba(200, 41, 9, 0.28), 
-                  inset 0 1px 1px 0 rgba(255, 255, 255, 0.28);
+      background: rgba(14, 13, 18, 0.85);
+      border-color: rgba(255, 255, 255, 0.14);
+      box-shadow: 0 20px 42px -10px rgba(0, 0, 0, 0.9), 
+                  0 0 25px rgba(200, 41, 9, 0.22), 
+                  inset 0 1px 1px 0 rgba(255, 255, 255, 0.16);
     }
 
+    /* On mobile, floating center island is hidden to keep the viewport clean & uncluttered */
     @media (max-width: 767px) {
       #floating-navbar-island {
-        opacity: 0;
-        pointer-events: none;
-        transform: translate(-50%, -12px);
-      }
-      #floating-navbar-island.is-scrolled {
-        opacity: 1;
-        pointer-events: auto;
-        transform: translate(-50%, 0);
+        display: none !important;
       }
     }
 
     @media (min-width: 768px) {
       #floating-navbar-island {
+        display: block !important;
         opacity: 1 !important;
         pointer-events: auto !important;
         transform: translate(-50%, 0) !important;
@@ -583,7 +578,7 @@
       padding: 7px 18px;
       border-radius: 9999px;
       text-decoration: none;
-      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       font-size: 13.5px;
       font-weight: 500;
       color: #94a3b8;
@@ -702,7 +697,7 @@
       border-radius: 12px;
       padding: 10px 14px;
       color: #fbfbfd;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro", "Poppins", sans-serif;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       font-size: 13.5px;
       line-height: 1.45;
       outline: none;
@@ -764,15 +759,17 @@
 
     /* ─── Ultra-Sleek Modern Review Cards ─── */
     .review-card-modern {
-      background: linear-gradient(160deg, rgba(255, 255, 255, 0.035) 0%, rgba(255, 255, 255, 0.008) 100%);
+      background: linear-gradient(165deg, rgba(255, 255, 255, 0.035) 0%, rgba(255, 255, 255, 0.008) 100%);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 18px;
-      padding: 18px 20px;
+      border-radius: 20px;
+      padding: 22px 22px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       position: relative;
       overflow: hidden;
+      min-height: 245px;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
       transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -780,8 +777,8 @@
       content: '';
       position: absolute;
       top: 0;
-      left: 15%;
-      right: 15%;
+      left: 10%;
+      right: 10%;
       height: 1px;
       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
       opacity: 0.6;
@@ -789,18 +786,122 @@
     }
 
     .review-card-modern:hover {
-      transform: translateY(-3px);
+      transform: translateY(-4px);
       border-color: rgba(200, 41, 9, 0.45);
-      background: linear-gradient(160deg, rgba(200, 41, 9, 0.06) 0%, rgba(255, 255, 255, 0.015) 100%);
+      background: linear-gradient(165deg, rgba(200, 41, 9, 0.07) 0%, rgba(255, 255, 255, 0.015) 100%);
       box-shadow: 
-        0 16px 36px -12px rgba(0, 0, 0, 0.8),
-        0 0 30px -8px rgba(200, 41, 9, 0.22),
+        0 20px 40px -15px rgba(0, 0, 0, 0.8),
+        0 0 25px -5px rgba(200, 41, 9, 0.25),
         inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
     }
 
     .review-card-modern:hover::before {
-      background: linear-gradient(90deg, transparent, rgba(200, 41, 9, 0.8), transparent);
+      background: linear-gradient(90deg, transparent, rgba(200, 41, 9, 0.9), transparent);
       opacity: 1;
+    }
+
+    /* ─── Professional Reviews Slider Controls ─── */
+    .slider-nav-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #cbd5e1;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .slider-nav-btn:hover:not(:disabled) {
+      background: rgba(200, 41, 9, 0.2);
+      border-color: rgba(200, 41, 9, 0.6);
+      color: #ffffff;
+      transform: scale(1.06);
+      box-shadow: 0 0 15px -2px rgba(200, 41, 9, 0.5);
+    }
+
+    .slider-nav-btn:active:not(:disabled) {
+      transform: scale(0.95);
+    }
+
+    .slider-nav-btn:disabled {
+      opacity: 0.25;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .slider-pagination-dot {
+      height: 6px;
+      width: 6px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.22);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      border: none;
+      padding: 0;
+    }
+
+    .slider-pagination-dot:hover {
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .slider-pagination-dot.is-active {
+      width: 22px;
+      background: #C82909;
+      box-shadow: 0 0 10px rgba(200, 41, 9, 0.8);
+    }
+
+    .reviews-slider-track {
+      display: flex;
+      gap: 1.25rem;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 0.5rem 0 1.25rem 0;
+      cursor: grab;
+      user-select: none;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .reviews-slider-track.is-centered {
+      justify-content: center;
+    }
+
+    .reviews-slider-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .reviews-slider-track.is-dragging {
+      cursor: grabbing;
+      scroll-snap-type: none;
+      scroll-behavior: auto;
+    }
+
+    /* Precision Managed Slider Card Widths */
+    .review-slider-item {
+      flex: 0 0 100%;
+      width: 100%;
+      box-sizing: border-box;
+      scroll-snap-align: start;
+    }
+
+    @media (min-width: 640px) {
+      .review-slider-item {
+        flex: 0 0 calc((100% - 1.25rem) / 2);
+        width: calc((100% - 1.25rem) / 2);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .review-slider-item {
+        flex: 0 0 calc((100% - 2.5rem) / 3);
+        width: calc((100% - 2.5rem) / 3);
+      }
     }
 
     /* ─── Social Icon Buttons with Micro-Interactions & Seamless Flow ─── */
@@ -974,53 +1075,6 @@
     .reveal-delay-300 { transition-delay: 0.3s; }
     .reveal-delay-400 { transition-delay: 0.4s; }
 
-    /* ─── Client Endorsements & Real Reviews ─── */
-    .review-card {
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: transform, opacity;
-      transform-style: preserve-3d;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .review-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.06), transparent 40%);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .review-card:hover {
-      transform: translateY(-8px) scale(1.02);
-      z-index: 10;
-    }
-    
-    .review-card:hover::before {
-      opacity: 1;
-    }
-
-    .review-card-whatsapp:hover {
-      border-color: rgba(37, 211, 102, 0.6) !important;
-      box-shadow: 0 20px 40px -10px rgba(37, 211, 102, 0.15), 0 0 30px rgba(37, 211, 102, 0.05);
-      background: rgba(37, 211, 102, 0.02);
-    }
-
-    .review-card-telegram:hover {
-      border-color: rgba(34, 158, 217, 0.6) !important;
-      box-shadow: 0 20px 40px -10px rgba(34, 158, 217, 0.15), 0 0 30px rgba(34, 158, 217, 0.05);
-      background: rgba(34, 158, 217, 0.02);
-    }
-
-    .review-card-email:hover {
-      border-color: rgba(200, 41, 9, 0.6) !important;
-      box-shadow: 0 20px 40px -10px rgba(200, 41, 9, 0.15), 0 0 30px rgba(200, 41, 9, 0.05);
-      background: rgba(200, 41, 9, 0.02);
-    }
-
     .review-filter-btn {
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
@@ -1139,34 +1193,62 @@
     }
 
 
-    /* Animated Green Border Pill */
-    .animated-border-pill::before {
+    /* ─── Clean Minimal Status Pill ─── */
+    .minimal-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.22);
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.12);
+      transition: all 0.3s ease;
+    }
+    .minimal-status-pill:hover {
+      background: rgba(16, 185, 129, 0.12);
+      border-color: rgba(16, 185, 129, 0.35);
+      box-shadow: 0 0 25px rgba(16, 185, 129, 0.2);
+    }
+    .minimal-status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 9999px;
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+      position: relative;
+    }
+    .minimal-status-dot::after {
       content: '';
       position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 400px;
-      height: 400px;
-      margin-top: -200px;
-      margin-left: -200px;
-      background: conic-gradient(from 90deg at 50% 50%, transparent 50%, #10b981 100%);
-      animation: pure-spin 3s linear infinite;
-      pointer-events: none;
-      z-index: 0;
+      inset: -3px;
+      border-radius: inherit;
+      border: 1.5px solid #10b981;
+      animation: statusPulse 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     }
-    @keyframes pure-spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+    @keyframes statusPulse {
+      0% { transform: scale(0.9); opacity: 0.9; }
+      100% { transform: scale(2.2); opacity: 0; }
     }
-    .animated-border-inner {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      gap: 0.625rem;
-      padding: 0.5rem 1rem;
-      background-color: #0c0c11;
-      border-radius: 9999px;
+
+    /* ─── Executive Minimalist NDA Protected Archive Bar ─── */
+    .nda-archive-banner {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.025) 0%, rgba(200, 41, 9, 0.05) 50%, rgba(255, 255, 255, 0.015) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 12px 35px -8px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      transition: all 0.35s ease;
+    }
+    .nda-archive-banner:hover {
+      border-color: rgba(200, 41, 9, 0.35);
+      box-shadow: 0 16px 45px -10px rgba(0, 0, 0, 0.85), 0 0 30px rgba(200, 41, 9, 0.12);
+    }
+
+    /* ─── Fixed Glass Header for Mobile View ─── */
+    .mobile-glass-nav {
+      background: rgba(5, 5, 7, 0.85);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
     }
